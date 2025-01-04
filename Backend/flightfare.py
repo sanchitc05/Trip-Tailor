@@ -1,3 +1,4 @@
+# the accesstoken expires after 1799 secs. hit req at https://test.api.amadeus.com/v1/security/oauth2/token?grant_type=client_credentials&client_id=uDwYiy2o4YMafh27lz6wRu3gUZH5TTA9&client_secret=NtluIlGG9pAiDSKd
 import requests
 import json
 from dotenv import load_dotenv
@@ -72,7 +73,8 @@ def get_flight_prices(departure_location, arrival_location, departure_date, retu
             
             if prices:
                 # Calculate the average and median prices
-                average_price = sum(prices) / len(prices)
+                # average_price = sum(prices) / len(prices)
+                average_price = statistics.mean(prices)
                 median_price = statistics.median(prices)
                 max_price = max(prices)
                 min_price = min(prices)
@@ -92,8 +94,10 @@ def get_flight_prices(departure_location, arrival_location, departure_date, retu
     else:
         print(f"Error searching for flights: {response.status_code}")
 
+    return average_price, median_price, max_price, min_price
+
 # Example usage
-departure_location = "BOM"  # Mumbai (IATA code)
+departure_location = "SFO"  # San Francisco (IATA code)
 arrival_location = "LAX"    # Los Angeles (IATA code)
 departure_date = "2025-01-15"  # Format: YYYY-MM-DD
 return_date = "2025-01-22"  # Optional: For round trips, add return date (Format: YYYY-MM-DD)
