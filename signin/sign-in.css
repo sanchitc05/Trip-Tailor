@@ -1,0 +1,120 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #0A101F;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.modal {
+    background: rgba(0, 0, 0, 0.8);
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.modal-content {
+    width: 90%;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.auth-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.auth-form {
+    width: 100%;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.auth-input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background-color: #1B1B2F;
+    border: 1px solid #444;
+    color: #fff;
+    border-radius: 8px;
+    outline: none;
+}
+
+.auth-input:focus {
+    border-color: #FFD369;
+}
+
+.auth-btn {
+    width: 106%;
+    padding: 12px;
+    font-size: 16px;
+    background-color: #FFD369;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #1B1B2F;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.auth-btn:hover {
+    transform: translateY(-5px); /* Lift effect */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Add shadow on hover */
+}
+
+
+
+
+.auth-switch {
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.auth-switch-link {
+    color: #FFD369;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.auth-switch-link:hover {
+    color: #FFC947;
+}
+/* Error styling for password mismatch */
+.auth-input.error {
+    border-color: #FF4D4D; /* Red border for error */
+}
+
+/* Error message styling */
+#error-message {
+    color: #FF4D4D; /* Red text for error message */
+    margin-top: 5px;
+    font-size: 14px;
+    text-align: left;
+    display: none; /* Hidden by default, shown when error occurs */
+}
+

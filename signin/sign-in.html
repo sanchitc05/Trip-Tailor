@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In / Sign Up</title>
+    <link rel="stylesheet" href="sign-in.css">
+</head>
+<body>
+
+<!-- Modal for Sign In / Sign Up -->
+<div id="authModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" id="closeModalBtn">&times;</span>
+        
+        <!-- Sign In Form -->
+        <div id="signInForm" class="auth-form">
+            <h2 class="auth-title">Sign In</h2>
+            <form>
+                <div class="input-group">
+                    <input type="email" placeholder="Email" class="auth-input" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" placeholder="Password" class="auth-input" required>
+                </div>
+                <button type="submit" class="auth-btn">Sign In</button>
+                <p class="auth-switch">Don't have an account? <a href="javascript:void(0)" id="switchToSignUp" class="auth-switch-link">Create Account</a></p>
+            </form>
+        </div>
+
+ <!-- Sign Up Form -->
+<div id="signUpForm" class="auth-form" style="display: none;">
+    <h2 class="auth-title">Sign Up</h2>
+    <form id="signUpFormSubmit">
+        <div class="input-group">
+            <input type="text" placeholder="Full Name" class="auth-input" id="fullName" required>
+        </div>
+        <div class="input-group">
+            <input type="email" placeholder="Email" class="auth-input" id="email" required>
+        </div>
+        <div class="input-group">
+            <input type="password" placeholder="Password" class="auth-input" id="password" required>
+        </div>
+        <div class="input-group">
+            <input type="password" placeholder="Confirm Password" class="auth-input" id="confirmPassword" required>
+        </div>
+        <!-- Error message will be shown here -->
+        <div id="error-message"></div>
+        <button type="submit" class="auth-btn">Sign Up</button>
+        <p class="auth-switch">Already have an account? <a href="javascript:void(0)" id="switchToSignIn" class="auth-switch-link">Sign In</a></p>
+    </form>
+</div>
+
+
+    </div>
+</div>
+
+<script src="sign-in.js"></script>
+</body>
+</html>
