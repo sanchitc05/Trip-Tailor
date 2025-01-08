@@ -12,6 +12,11 @@
 <!-- Navbar -->
 <nav class="navbar">
   <div class="navbar-logo">Trip Tailor</div>
+  <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
   <ul class="navbar-links">
       <li><a href="../index.html" class="navbar-link">Home</a></li> 
       <li><a href="../index.html" class="navbar-link">Features</a></li>
@@ -30,6 +35,14 @@
 <footer class="footer">
   <p>&copy; 2025 Trip Tailor. All rights reserved.</p>
 </footer>
+
+<script>
+  document.querySelector('.hamburger').addEventListener('click', () => {
+const navLinks = document.querySelector('.navbar-links');
+navLinks.classList.toggle('show');
+});
+</script>
+
 
   <script src="contributor.js"></script>
 </body>
