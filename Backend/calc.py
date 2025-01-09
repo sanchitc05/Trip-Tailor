@@ -2,7 +2,7 @@
 # import statistics
 from flightfare import get_flight_prices
 from fuel import fuel
-from gemini import get_fare
+from tickets import get_fare
 from hotels import get_accommodation_cost
 
 # departure_location = "BOM"  # Mumbai (IATA code)
