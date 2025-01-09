@@ -43,7 +43,7 @@ def get_flight_prices(departure_location, arrival_location, departure_date, retu
         'departureDate': departure_date,
         'returnDate': return_date if return_date else '',
         'adults': 1,  # You can specify more passengers here if needed
-        'currencyCode': 'USD'
+        'currencyCode': 'INR'
     }
     
     # Send the flight search request
@@ -80,13 +80,11 @@ def get_flight_prices(departure_location, arrival_location, departure_date, retu
                 min_price = min(prices)
                 
                 # Print the results
-                print(f"Average Price: {average_price:.2f} USD")
-                print(f"Median Price: {median_price:.2f} USD")
-                print(f"Max Price: {max_price:.2f} USD")
-                print(f"Min Price: {min_price:.2f} USD")
+                # print(f"Average Price: {average_price:.2f} INR")
+                # print(f"Median Price: {median_price:.2f} INR")
+                # print(f"Max Price: {max_price:.2f} INR")
+                # print(f"Min Price: {min_price:.2f} INR")
                 
-                # Optionally, print the list of prices
-                # print("Flight Prices: ", prices)
             else:
                 print("No valid flight prices found.")
         else:
@@ -97,9 +95,9 @@ def get_flight_prices(departure_location, arrival_location, departure_date, retu
     return average_price, median_price, max_price, min_price
 
 # Example usage
-departure_location = "SFO"  # San Francisco (IATA code)
-arrival_location = "LAX"    # Los Angeles (IATA code)
-departure_date = "2025-01-15"  # Format: YYYY-MM-DD
-return_date = "2025-01-22"  # Optional: For round trips, add return date (Format: YYYY-MM-DD)
+# departure_location = "SFO"  # San Francisco (IATA code)
+# arrival_location = "LAX"    # Los Angeles (IATA code)
+# departure_date = "2025-01-15"  # Format: YYYY-MM-DD
+# return_date = "2025-01-22"  # Optional: For round trips, add return date (Format: YYYY-MM-DD)
 
-get_flight_prices(departure_location, arrival_location, departure_date, return_date)
+# get_flight_prices(departure_location, arrival_location, departure_date, return_date)

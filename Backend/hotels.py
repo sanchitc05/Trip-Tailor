@@ -113,42 +113,44 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-genai.configure(api_key=os.environ["GEMINIAPIKEY"])
+def get_accommodation_cost(destination):
+    genai.configure(api_key=os.environ["GEMINIAPIKEY"])
 
-# Create the model
-generation_config = {
-  "temperature": 1,
-  "top_p": 0.95,
-  "top_k": 40,
-  "max_output_tokens": 8192,
-  "response_mime_type": "text/plain",
-}
+    # Create the model
+    generation_config = {
+      "temperature": 1,
+      "top_p": 0.95,
+      "top_k": 40,
+      "max_output_tokens": 8192,
+      "response_mime_type": "text/plain",
+    }
 
-model = genai.GenerativeModel(
-  model_name="gemini-2.0-flash-exp",
-  generation_config=generation_config,
-)
+    model = genai.GenerativeModel(
+      model_name="gemini-2.0-flash-exp",
+      generation_config=generation_config,
+    )
 
-chat_session = model.start_chat(
-  history=[
-  ]
-)
-# mode = "train"
-# source = "Mumbai"
-# destination = "Delhi"
+    chat_session = model.start_chat(
+      history=[
+      ]
+    )
+    # mode = "train"
+    # source = "Mumbai"
+    # destination = "Delhi"
 
-valid_modes = ["budget", "midrange", "luxury"]
+    valid_modes = ["budget", "midrange", "luxury"]
 
-mode = input("Enter type of accommodation(budget/midrange.luxury): ").lower()
+    mode = input("Enter type of accommodation(budget/midrange/luxury): ").lower()
 
-while mode not in valid_modes:
-    print("Invalid mode of transport. Please enter 'budget', 'midrange', 'luxury'.")
-    mode = input("Enter mode of transport (Bus/Train): ").lower()
+    while mode not in valid_modes:
+        print("Invalid mode of transport. Please enter 'budget', 'midrange', 'luxury'.")
+        mode = input("Enter mode of transport (Bus/Train): ").lower()
 
-destination = input("Enter destination: ")
+    # destination = input("Enter destination: ")
 
-response = chat_session.send_message(f"whats the general cost of accommodation in {destination} for {mode} type? return just the number")
+    response = chat_session.send_message(f"whats the general cost of accommodation in {destination} for {mode} type? return just the number")
 
-accommodation_cost = response.text
+    accommodation_cost = response.text
 
-print(accommodation_cost, type(accommodation_cost))
+    # print(accommodation_cost, type(accommodation_cost))
+    return accommodation_cost
