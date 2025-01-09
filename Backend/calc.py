@@ -1,24 +1,7 @@
-# import requests
-# import statistics
 from flightfare import get_flight_prices
 from fuel import fuel
 from tickets import get_fare
 from hotels import get_accommodation_cost
-
-# departure_location = "BOM"  # Mumbai (IATA code)
-# arrival_location = "LAX"    # Los Angeles (IATA code)
-# departure_date = "2025-01-15"  # Format: YYYY-MM-DD
-# return_date = "2025-01-22"  # Optional: For round trips, add return date (Format: YYYY-MM-DD)
-
-# get_flight_prices(departure_location, arrival_location, departure_date, return_date)
-
-# print(f"Average Price: {average_price}")
-# print(f"Median Price: {median_price}")
-# print(f"Max Price: {max_price}")
-# print(f"Min Price: {min_price}")
-
-
-
 import requests
 from dotenv import load_dotenv
 import os
