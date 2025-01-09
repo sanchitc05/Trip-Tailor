@@ -58,3 +58,8 @@ async function fetchContributors() {
 
 // Fetch and render contributors on page load
 fetchContributors();
+
+  document.querySelector('.hamburger').addEventListener('click', () => {
+const navLinks = document.querySelector('.navbar-links');
+navLinks.classList.toggle('show');
+});
