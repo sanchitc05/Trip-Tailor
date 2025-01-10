@@ -87,17 +87,23 @@ body {
     background-color: #FFD369;
     padding: 15px 25px;
     font-size: 18px;
-    color: #1B1B2F;
+    color: #ffffff;
+    text-decoration: none; /* Ensures the link doesn't have an underline */
     border: none;
     border-radius: 5px;
     cursor: pointer;
     margin-top: 20px;
     font-weight: 600;
     transition: background-color 0.3s ease;
+    display: inline-block; /* Makes it behave like a button */
 }
 
 .cta-button:hover {
     background-color: #FFC947;
+}
+
+.cta-button:visited {
+    color: #1B1B2F; /* Ensures the visited state doesn't change color */
 }
 
 /* Features Section */
