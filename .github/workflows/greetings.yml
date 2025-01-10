@@ -1,6 +1,7 @@
 name: Greetings
 
-on: [pull_request_target, issues]
+on: 
+  [pull_request_target, issues]
 
 jobs:
   greeting:
@@ -12,5 +13,22 @@ jobs:
     - uses: actions/github-script@v6
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
-        issue-message: " Thank you for raising an issue! We will review it shortly. Stay tuned!"
-        pr-message: " 🎉 Thank you for your contribution!  We appreciate your support in making this project better."
+        script: |
+          const { context, github } = require('@actions/github');
+          const { eventName } = context;
+
+          if (eventName === 'issues') {
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'Thank you for raising an issue! We will review it shortly. Stay tuned!'
+            });
+          } else if (eventName === 'pull_request_target') {
+            await github.rest.issues.createComment({
+              issue_number: context.payload.pull_request.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '🎉 Thank you for your contribution! We appreciate your support in making this project better.'
+            });
+          }
