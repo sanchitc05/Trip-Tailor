@@ -1,0 +1,141 @@
+body {
+    font-family: 'Work Sans', sans-serif;
+    background-color: #0A101F;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+  
+h1, h2, h3 {
+    color: #FFD369; /* Yellow */
+}
+  
+a {
+    text-decoration: none;
+}
+  
+header {
+    text-align: left;
+    margin-top: 20px;
+    padding-left: 20px;
+}
+  
+header a {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #0A101F;
+    color: #FFD369;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+  
+header a:hover {
+    background-color: #FFD369;
+    color: #071d32;
+    transform: translateY(-3px);
+}
+  
+header a:active {
+    transform: translateY(2px);
+}
+
+/* Recommendation Section */
+#recommendation {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #1B1B2F; /* Dark background for emphasis */
+    border-radius: 10px;
+    margin-top: 30px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+  
+#recommendation h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #FFD369; /* Yellow color for headings */
+}
+  
+#recommendation p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: #dcdcdc; /* Light gray for text */
+}
+  
+#recommendation-text {
+    font-size: 1.2rem;
+    color: #dcdcdc; /* Light gray text for the recommendation */
+    line-height: 1.6; /* Improve readability */
+    margin-top: 20px;
+    white-space: pre-wrap; /* Ensures proper text wrapping */
+    word-wrap: break-word; /* Break long words */
+}
+
+/* Form */
+.form-container {
+    background: #1B1B2F;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+  
+.form-container input,
+.form-container select,
+.form-container textarea {
+    width: 90%;
+    padding: 10px 15px;
+    margin: 15px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+  
+.form-container input {
+    height: 45px;
+}
+  
+.form-container textarea {
+    resize: none;
+    height: 100px;
+}
+  
+.form-container button {
+    display: inline-block;
+    width: 90%;
+    padding: 15px 15px;
+    background-color: #FFD369;
+    color: #031527;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+  
+.form-container button:hover {
+    background-color: #FFD369;
+    transform: scale(1.05);
+}
+  
+.form-container button:active {
+    transform: scale(0.95);
+}
+
+/* Social Links */
+.social-links {
+    margin-top: 40px;
+}
+  
+.social-links a {
+    text-decoration: none;
+    color: #FFD369;
+    font-size: 1.5rem;
+    margin: 0 15px;
+    transition: all 0.3s ease;
+}
+  
+.social-links a:hover {
+    color: #FFD369;
+}

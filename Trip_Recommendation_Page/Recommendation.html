@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Recommendation</title>
+  <link rel="stylesheet" href="Recommendation.css">
+</head>
+<body>
+  <header>
+    <a href="../index.html">Back to Home</a>
+  </header>
+
+  <section id="recommendation" class="recommendation-section">
+    <h1>Travel Recommendation</h1>
+    <p>Fill out the form below to get personalized travel recommendations based on your preferences.</p>
+    
+    <!-- Travel Recommendation Form -->
+    <div class="form-container">
+      <form id="travel-form">
+        <input type="text" id="current-location" name="location" placeholder="Enter your current location" required>
+        <input type="number" id="budget" name="budget" placeholder="Your Budget (in INR)" required>
+        <input type="number" id="days" name="days" placeholder="Number of days" required>
+        <textarea id="preferences" name="preferences" placeholder="Enter your preferences (e.g. beaches, mountains)" required></textarea>
+        <button type="submit">Get Recommendation</button>
+      </form>
+    </div>
+
+    <!-- Display Recommendations -->
+    <div id="recommendation-result" class="result-container">
+      <h2>Your Personalized Travel Plan</h2>
+      <p id="recommendation-text"></p>
+    </div>
+
+    <!-- Social Links -->
+   
+  </section>
+
+  <script src="Recommendation.js"></script>
+</body>
+</html>
