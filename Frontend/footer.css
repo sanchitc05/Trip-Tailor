@@ -4,6 +4,7 @@ footer {
     padding: 50px 0;
     width: 100%; /* Changed from fixed width to responsive */
     max-width: 100%; /* Ensures content doesn't overflow */
+    text-align: center;
 }
 
 .footer-content {
@@ -15,11 +16,13 @@ footer {
     max-width: 1200px; /* Added max-width for larger screens */
     margin-left: auto; /* Center the content */
     margin-right: auto; /* Center the content */
+    text-align: center;
 }
 
 .footer-section {
     margin-left: 0; /* Removed fixed margin */
     padding: 0 15px; /* Added padding instead */
+    text-align: center;
 }
 
 .footer-section h3 {
@@ -27,6 +30,7 @@ footer {
     margin-bottom: 1rem;
     color: #fff;
     margin-left: 0; /* Removed fixed margin */
+    text-align: center;
 }
 
 .footer-section h4 {
@@ -34,6 +38,7 @@ footer {
     margin-bottom: 1rem;
     color: #fff;
     margin-left: 0; /* Removed fixed margin */
+    text-align: center;
 }
 
 .footer-section p {
@@ -47,11 +52,13 @@ footer {
 .footer-section ul {
     list-style: none;
     padding: 0;
+    text-align: center;
 }
 
 .footer-section ul li {
     margin-bottom: 0.8rem;
     margin-left: 0; /* Removed fixed margin */
+    text-align: center;
 }
 
 .social-links {
