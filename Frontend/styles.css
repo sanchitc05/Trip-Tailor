@@ -268,6 +268,22 @@ body {
     background-color: #FFCA47;
 }
 
+.top-link {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.top-link.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.top-link.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
     .navbar-logo {

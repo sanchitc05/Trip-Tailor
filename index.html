@@ -179,7 +179,7 @@
     const scrollToTopButton = document.getElementById('scrollToTopBtn');
     const scrollFunc = () => {
         let y = window.scrollY;
-        if (y > 0) { // Show button as soon as user scrolls
+        if (y > 100) { 
             scrollToTopButton.className = "top-link show";
         } else {
             scrollToTopButton.className = "top-link hide";
