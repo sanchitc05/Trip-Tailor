@@ -156,35 +156,8 @@ body {
     font-size: 16px;
 }
 /* most popular destination section */
-  .feature-cards
-  {
-    background-color: #1B1B2F;
-    padding: 25px;
-    border-radius: 10px;
-    text-align: center;
-    color: #F3F4F6;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  .feature-cards:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
-}
-
-.feature-icons {
-    font-size: 40px;
-    color: #FFC947;
-}
-
-.feature-titles {
-    font-size: 22px;
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-
-.feature-descriptions {
-    font-size: 16px;
-    margin-bottom: 4%;
+a {
+  color: white;
 }
   h2 {
     text-align: center;
