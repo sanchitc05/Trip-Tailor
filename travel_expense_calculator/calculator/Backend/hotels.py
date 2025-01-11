@@ -113,7 +113,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-def get_accommodation_cost(destination):
+def get_accommodation_cost(destination, accommodation_type):
     genai.configure(api_key=os.environ["GEMINIAPIKEY"])
 
     # Create the model
@@ -138,19 +138,19 @@ def get_accommodation_cost(destination):
     # source = "Mumbai"
     # destination = "Delhi"
 
-    valid_modes = ["budget", "midrange", "luxury"]
+    # valid_modes = ["budget", "midrange", "luxury"]
 
-    mode = input("Enter type of accommodation(budget/midrange/luxury): ").lower()
+    # mode = input("Enter type of accommodation(budget/midrange/luxury): ").lower()
 
-    while mode not in valid_modes:
-        print("Invalid mode of transport. Please enter 'budget', 'midrange', 'luxury'.")
-        mode = input("Enter mode of transport (Bus/Train): ").lower()
+    # while mode not in valid_modes:
+    #     print("Invalid mode of transport. Please enter 'budget', 'midrange', 'luxury'.")
+    #     mode = input("Enter mode of transport (Bus/Train): ").lower()
 
     # destination = input("Enter destination: ")
 
-    response = chat_session.send_message(f"whats the general cost of accommodation in {destination} for {mode} type? return just the number")
+    response = chat_session.send_message(f"whats the general cost of accommodation in {destination} for {accommodation_type} type? return just the number")
 
     accommodation_cost = response.text
 
-    # print(accommodation_cost, type(accommodation_cost))
+    print(accommodation_cost, type(accommodation_cost))
     return accommodation_cost
