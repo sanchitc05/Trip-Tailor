@@ -89,9 +89,9 @@ body {
 
 .cta-button {
     background-color: #FFD369;
-    padding: 15px 20px;
+    padding: 20px 20px;
     font-size: 18px;
-    color: #ffffff;
+    color: #0A101F;
     text-decoration: none; /* Ensures the link doesn't have an underline */
     border: none;
     border-radius: 30px;
@@ -109,9 +109,7 @@ body {
     color: white;
 }
 
-.cta-button:visited {
-    color: #1B1B2F; /* Ensures the visited state doesn't change color */
-}
+ 
 
 /* Features Section */
 .features {
