@@ -12,23 +12,22 @@ jobs:
     steps:
     - uses: actions/github-script@v6
       with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        github-token: ${{ secrets.GITHUB_TOKEN }}
         script: |
-          const { context, github } = require('@actions/github');
-          const { eventName } = context;
+          const { eventName, issue, payload, repo } = context;
 
           if (eventName === 'issues') {
             await github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
+              issue_number: issue.number,
+              owner: repo.owner,
+              repo: repo.repo,
               body: 'Thank you for raising an issue! We will review it shortly. Stay tuned!'
             });
           } else if (eventName === 'pull_request_target') {
             await github.rest.issues.createComment({
-              issue_number: context.payload.pull_request.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
+              issue_number: payload.pull_request.number,
+              owner: repo.owner,
+              repo: repo.repo,
               body: '🎉 Thank you for your contribution! We appreciate your support in making this project better.'
             });
           }
