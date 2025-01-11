@@ -1,6 +1,11 @@
 html{
     scroll-behavior: smooth;
 }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 body {
     margin: 0;
     padding: 0;
@@ -150,6 +155,223 @@ body {
 .feature-description {
     font-size: 16px;
 }
+/* most popular destination section */
+  .feature-cards
+  {
+    background-color: #1B1B2F;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    color: #F3F4F6;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .feature-cards:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+}
+
+.feature-icons {
+    font-size: 40px;
+    color: #FFC947;
+}
+
+.feature-titles {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.feature-descriptions {
+    font-size: 16px;
+    margin-bottom: 4%;
+}
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 9px;
+  }
+  
+  .popular-destinations {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .destination-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .destination-box {
+    width: 250px;
+    height: 350px;
+    background-color: #2e3a59;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease;
+    margin: 10px;
+
+  }
+  
+  .destination-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .destination-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+  }
+  
+  .destination-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+  }
+  
+  .destination-box p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  .destination-box:hover {
+    transform: scale(1.1);
+  }
+  
+  .destination-box::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.2));
+    transition: left 0.5s ease;
+  }
+  
+  .destination-box:hover::after {
+    left: 100%;
+  }
+ 
+  .rotate-btn
+  {
+    border: none;
+    border-radius: 9px;
+    font-weight: bold;
+    background-color: #ffffff;
+    padding: 1% 7%;
+    cursor: pointer;
+  }
+
+.destination-box {
+    width: 250px;
+    height: 350px;
+    background-color: #2e3a59;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.6s ease;
+    margin: 10px;
+    transform-style: preserve-3d;
+  }
+  
+  .destination-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+  }
+  
+  .destination-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+    z-index: 2;
+  }
+  
+  .destination-box-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1rem;
+    padding: 10px;
+    z-index: 1;
+    opacity: 0.6; 
+    transform: rotateY(180deg); 
+    text-align: center; 
+  }
+  
+  .destination-box-back div {
+    margin-bottom: 10px;
+    font-weight: bold;
+   text-transform: capitalize;
+   font-size: 1.4rem;
+   border-bottom: 2px solid white;
+  }
+  
+  .destination-box-back ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .destination-box-back li {
+    margin-bottom: 5px; 
+    font-weight: bold;
+    background-color: #ffffff;
+    color: black;
+  }
+  
+  .destination-box-back button {
+    border: none;
+    border-radius: 9px;
+    font-weight: bold;
+    background-color: #f0f8ff7d;
+    padding: 1% 7%;
+    cursor: pointer;
+    margin-top: 10px; /* Space between the list and the button */
+  }
+  
+  
+  .destination-box.flipped .destination-info {
+    display: none; /* Hide front content when flipped */
+  }
+  
+  .destination-box.flipped .destination-box-back {
+    display: flex; /* Show back content when flipped */
+  }
+  
+  .destination-box.flipped {
+    transform: rotateY(180deg); /* Flip the box when flipped */
+  }
+  
+
+
+
 
 /* FAQ Section */
 .faq {
