@@ -250,6 +250,24 @@ body {
     border-radius: 5px;
 }
 
+/* Scroll to Top Button */
+#scrollToTopBtn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #FFD369;
+    color: #0A101F;
+    padding: 15px 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+}
+
+#scrollToTopBtn:hover {
+    background-color: #FFCA47;
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
     .navbar-logo {

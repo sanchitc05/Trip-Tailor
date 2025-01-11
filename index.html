@@ -172,5 +172,28 @@
         <p> &copy; 2024 Trip Tailor</p>
     </div>
 </footer>
+
+<!-- Scroll to Top Button -->
+<button id="scrollToTopBtn" title="Go to top"><b>↑</b></button>
+<script>
+    const scrollToTopButton = document.getElementById('scrollToTopBtn');
+    const scrollFunc = () => {
+        let y = window.scrollY;
+        if (y > 0) { // Show button as soon as user scrolls
+            scrollToTopButton.className = "top-link show";
+        } else {
+            scrollToTopButton.className = "top-link hide";
+        }
+    };
+    window.addEventListener("scroll", scrollFunc);
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+    scrollToTopButton.onclick = function (e) {
+        e.preventDefault();
+        scrollToTop();
+    };
+</script>
+
 </body>
 </html>
