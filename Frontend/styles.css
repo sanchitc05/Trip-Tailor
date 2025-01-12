@@ -92,14 +92,14 @@ body {
     padding: 20px 20px;
     font-size: 18px;
     color: #0A101F;
-    text-decoration: none; /* Ensures the link doesn't have an underline */
+    text-decoration: none;
     border: none;
     border-radius: 30px;
     cursor: pointer;
     margin-top: 30px;
     font-weight: 600;
     transition: background-color 0.3s ease;
-    display: inline-block; /* Makes it behave like a button */
+    display: inline-block; 
 }
 
 .cta-button:hover {
@@ -285,6 +285,36 @@ body {
 }
 
 /* Media Queries */
+
+@media (max-width: 1024px) {
+    .navbar-logo {
+        font-size: 24px;
+    }
+
+    .navbar-links {
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+    }
+
+    .navbar-link {
+        font-size: 18px;
+    }
+
+    .hero-content {
+        font-size: 45px;
+    }
+
+    .hero-subtext {
+        font-size: 20px;
+    }
+
+    .cta-button {
+        padding: 15px 25px;
+        font-size: 16px;
+    }
+}
+
 @media (max-width: 768px) {
     .navbar-logo {
         font-size: 24px;
@@ -300,17 +330,19 @@ body {
         width: 100%;
         padding: 20px 0;
         gap: 10px;
-        
+    }
+    .navbar-link{
+        margin: 7px;
     }
 
     .navbar-links.show {
         display: flex;
-        
     }
 
     .hamburger {
         display: flex;
     }
+
     .hero-content {
         font-size: 40px;
     }
@@ -326,13 +358,9 @@ body {
 }
 
 @media (max-width: 480px) {
-    /* .navbar {
-        padding: 10px 15px;
+    .navbar-link {
+        margin: 8px;
     }
-
-    .navbar-links {
-        gap: 10px;
-    } */
 
     .hero-content {
         font-size: 35px;
