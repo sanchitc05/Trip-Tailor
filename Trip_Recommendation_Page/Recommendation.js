@@ -46,8 +46,18 @@ document.getElementById('travel-form').addEventListener('submit', async function
       console.log('Error Data:', errorData);  // Log error details
       document.getElementById('recommendation-text').textContent = 'Sorry, we could not fetch recommendations at this time.';
     }
+     // Scroll to the recommendation result section
+     document.getElementById('recommendation-result').scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
   } catch (error) {
     console.log('Error:', error);  // Log any network error
     document.getElementById('recommendation-text').textContent = 'An error occurred while fetching recommendations.';
+   // Scroll to the recommendation result section in case of an error
+   document.getElementById('recommendation-result').scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  });
   }
 });

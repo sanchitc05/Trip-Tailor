@@ -19,9 +19,10 @@
     </div>
     <ul class="navbar-links">
         <li><a href="../index.html" class="navbar-link">Home</a></li> 
-        <li><a href="../index.html" class="navbar-link">Features</a></li>
+        <li><a href="#features" class="navbar-link">Features</a></li>
         <li><a href="#faq" class="navbar-link">FAQs</a></li>
         <li><a href="../contributors/contributor.html" class="navbar-link">Contributors</a></li>
+        <li><a href="../contact_us_page/contactus.html" class="navbar-link">Contact</a></li>  
         <li><a href="signin/sign-in.html" class="navbar-link">Sign In</a></li>  
     </ul>
 </nav>
@@ -56,11 +57,15 @@
    
     <div class="feature-card">
         <div class="feature-icon">✈️</div>
-        
+ PopularDestinationS
         <div class="feature-title"> Popular Indian Destinations</div>
         <a href="index2.html"> <p class="feature-description">Tap to take a look at the beautiful destinations that are trending</p>
      <div>
      </a>
+        <div class="feature-title">Popular destinations</div>
+        <p class="feature-description">Take a look at the beautiful destinations that are trending.</p>
+    </div>
+main
 </section>
 
 <section class="faq" id="faq">
@@ -174,5 +179,28 @@
         <p> &copy; 2024 Trip Tailor</p>
     </div>
 </footer>
+
+<!-- Scroll to Top Button -->
+<button id="scrollToTopBtn" title="Go to top"><b>↑</b></button>
+<script>
+    const scrollToTopButton = document.getElementById('scrollToTopBtn');
+    const scrollFunc = () => {
+        let y = window.scrollY;
+        if (y > 100) { 
+            scrollToTopButton.className = "top-link show";
+        } else {
+            scrollToTopButton.className = "top-link hide";
+        }
+    };
+    window.addEventListener("scroll", scrollFunc);
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+    scrollToTopButton.onclick = function (e) {
+        e.preventDefault();
+        scrollToTop();
+    };
+</script>
+
 </body>
 </html>
