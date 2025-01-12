@@ -163,6 +163,7 @@ h1 {
 }
 
 .navbar-links {
+  
     display: none;
     flex-direction: column;
     background-color: #1B1B2F;
@@ -172,7 +173,13 @@ h1 {
     width: 100%;
     padding: 20px 0;
     gap: 10px;
+    margin: 30px -5px;
+  width: 100%;
     
+}
+
+.navbar-link{
+  padding: 5px 5px;
 }
 
 .navbar-links.show {
