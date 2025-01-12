@@ -556,12 +556,14 @@ a {
     .cta-button {
         padding: 12px 20px;
         font-size: 16px;
+        padding: 5px 5px;
     }
 }
 
 @media (max-width: 480px) {
-    .navbar-link {
-        margin: 8px;
+    .navbar-links {
+        margin: 30px 0px;
+        width: 100%;
     }
 
     .hero-content {
