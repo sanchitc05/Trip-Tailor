@@ -1,6 +1,6 @@
 body {
     font-family: 'Poppins', sans-serif;
-    background: #0A101F;
+    background: #444;
     color: #fff;
     margin: 0;
     padding: 0;
@@ -84,6 +84,8 @@ body {
 .auth-btn:hover {
     transform: translateY(-5px); /* Lift effect */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Add shadow on hover */
+    color: black;
+    background-color: white;
 }
 
 
@@ -102,7 +104,8 @@ body {
 }
 
 .auth-switch-link:hover {
-    color: #FFC947;
+    color: red;
+    text-decoration: underline;
 }
 /* Error styling for password mismatch */
 .auth-input.error {

@@ -28,16 +28,24 @@
 </nav>
 
 <!-- Hero Section -->
-<section class="hero">
+<section class="hero-carousel">
+    <div class="carousel">
+        <div class="carousel-item active" style="background-image: url(./Frontend/Images/travel-home.jpg);"></div>
+        <div class="carousel-item" style="background-image: url(./Frontend/Images/1_travel-the-world.jpg);"></div>
+        <div class="carousel-item" style="background-image: url(./Frontend/Images/world-in-hands-478667956-5a55118ec7822d0037964a6e.jpg);"></div>
+    </div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
         <h1>Your Journey Starts Here</h1>
         <p class="hero-subtext"><b>Find the best travel options tailored for you</b></p>
         <a href="Trip_Recommendation_Page/Recommendation.html" class="cta-button">Start Planning with AI</a>
-
+    </div>
+    <div class="carousel-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
     </div>
 </section>
-
 <section class="features" id="features">
     <div class="feature-card">
         <div class="feature-icon">🗺️</div>
@@ -57,15 +65,11 @@
    
     <div class="feature-card">
         <div class="feature-icon">✈️</div>
- PopularDestinationS
         <div class="feature-title"> Popular Indian Destinations</div>
-        <a href="index2.html"> <p class="feature-description">Tap to take a look at the beautiful destinations that are trending</p>
+        <a href="index2.html"> <p class="feature-description" style="color:yellowgreen;">Tap to take a look at the beautiful destinations that are trending</p>
      <div>
      </a>
-        <div class="feature-title">Popular destinations</div>
-        <p class="feature-description">Take a look at the beautiful destinations that are trending.</p>
-    </div>
-main
+       
 </section>
 
 <section class="faq" id="faq">
@@ -200,6 +204,39 @@ main
         e.preventDefault();
         scrollToTop();
     };
+
+    const carousel = document.querySelector('.carousel');
+    const dots = document.querySelectorAll('.dot');
+    let currentIndex = 0;
+
+    function showSlide(index) {
+        const totalSlides = dots.length;
+
+        // Update carousel transform
+        carousel.style.transform = `translateX(-${index * 100}%)`;
+
+        // Update active dot
+        dots.forEach(dot => dot.classList.remove('active'));
+        dots[index].classList.add('active');
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % dots.length;
+        showSlide(currentIndex);
+    }
+
+    // Auto-play slides
+    setInterval(nextSlide, 5000); // Change image every 5 seconds
+
+    // Add click event to dots
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            currentIndex = index;
+            showSlide(currentIndex);
+        });
+    });
+
+
 </script>
 
 </body>

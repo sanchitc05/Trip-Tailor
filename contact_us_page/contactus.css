@@ -15,6 +15,59 @@ header {
     margin-top: 20px;
     padding-left: 20px; /* Add left padding to position the button */
 }
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;  
+  background-color:#FFD369;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height:90px;
+  width: 100%;
+  box-sizing: border-box; 
+}
+
+.navbar-logo {
+  font-size: 25px;
+  font-weight: 600;
+  color: #FFD369;
+}
+
+.navbar-links {
+  
+  display: flex;
+  gap: 30px;  
+  list-style: none;
+  margin-right:20px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  position: relative;
+  
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: #2e3a59;
+  font-size: 20px;
+  font-weight: 300;
+  transition: color 0.3s ease;
+  transition: transform 0.3s, background-color 0.3s, color 0.3s;
+
+ 
+}
+.navbar-link:hover{
+  text-decoration: underline;
+  transition: color 0.3s ease;
+  transform: scale(1.1);
+  color: #F3F4F6;
+  transform: rotateY(10deg) scale(1.05);
+  
+
+  
+}
 
 header a {
     display: inline-block;
@@ -44,6 +97,7 @@ header a:active {
   .contact-section {
     padding: 50px 20px;
     text-align: center;
+    
   }
   
   .contact-section h1 {
@@ -66,6 +120,7 @@ header a:active {
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    border: 2px solid #FFD369;
   }
   
   .contact-form input,
