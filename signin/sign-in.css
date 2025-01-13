@@ -1,3 +1,4 @@
+/* General Body Styling */
 body {
     font-family: 'Poppins', sans-serif;
     background: #0A101F;
@@ -5,30 +6,80 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: flex-start; 
+    min-height: 100vh; 
 }
 
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;  
+    background-image: linear-gradient(to right, #0e162b, #2a2a48, #0e162b);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 90px;
+    width: 100%;
+    box-sizing: border-box; 
+}
+
+/* Navbar Logo */
+.navbar-logo {
+    font-size: 25px;
+    font-weight: 600;
+    color: #FFD369;
+}
+
+/* Navbar Links */
+.navbar-links {
+    display: flex;
+    gap: 30px;  
+    list-style: none;
+    margin-right: 20px;
+}
+
+.navbar-link {
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+    transition: color 0.3s ease;
+}
+
+.navbar-link:hover {
+    color: #FFD369;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+/* Modal */
 .modal {
     background: rgba(0, 0, 0, 0.8);
     position: relative;
-    width: 100%;
-    max-width: 400px;
+    width: 80%; 
+    max-width: 500px; 
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
 }
 
+/* Modal Content */
 .modal-content {
     width: 90%;
 }
 
+/* Close Button */
 .close-btn {
     position: absolute;
     top: 10px;
@@ -38,6 +89,7 @@ body {
     cursor: pointer;
 }
 
+/* Auth Title */
 .auth-title {
     font-size: 24px;
     font-weight: 600;
@@ -45,14 +97,17 @@ body {
     text-align: center;
 }
 
+/* Auth Form */
 .auth-form {
     width: 100%;
 }
 
+/* Input Group */
 .input-group {
     margin-bottom: 20px;
 }
 
+/* Auth Input */
 .auth-input {
     width: 100%;
     padding: 12px;
@@ -68,8 +123,9 @@ body {
     border-color: #FFD369;
 }
 
+/* Auth Button */
 .auth-btn {
-    width: 106%;
+    width: 100%; 
     padding: 12px;
     font-size: 16px;
     background-color: #FFD369;
@@ -82,13 +138,11 @@ body {
 }
 
 .auth-btn:hover {
-    transform: translateY(-5px); /* Lift effect */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Add shadow on hover */
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); 
 }
 
-
-
-
+/* Auth Switch */
 .auth-switch {
     margin-top: 15px;
     font-size: 14px;
@@ -104,17 +158,33 @@ body {
 .auth-switch-link:hover {
     color: #FFC947;
 }
-/* Error styling for password mismatch */
+
+/* Error Styling for Password Mismatch */
 .auth-input.error {
-    border-color: #FF4D4D; /* Red border for error */
+    border-color: #FF4D4D; 
 }
 
-/* Error message styling */
+/* Error Message Styling */
 #error-message {
-    color: #FF4D4D; /* Red text for error message */
+    color: #FF4D4D; 
     margin-top: 5px;
     font-size: 14px;
     text-align: left;
-    display: none; /* Hidden by default, shown when error occurs */
+    display: none; 
 }
 
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+    .modal {
+        width: 90%; 
+        padding: 20px; 
+    }
+
+    .auth-title {
+        font-size: 20px; 
+    }
+
+    .auth-btn {
+        width: 100%; 
+    }
+}  
