@@ -126,4 +126,13 @@ header a:active {
   .social-links a:hover {
     color: #FFD369; /* Lighter yellow */
   }
+
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #1B1B2F;
+  color: #F3F4F6;
+}
   
