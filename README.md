@@ -31,7 +31,7 @@
 
 <br>
 
-## For contributors - [Annocement Page](https://knowing-giant-e68.notion.site/Announcement-Page-for-Contributors-Trip-Tailor-16fa60654bb48033adc0d5082c0f492b)
+## IMPORTANT FOR CONTRIBUTORS - [Annocement Page](https://knowing-giant-e68.notion.site/Announcement-Page-for-Contributors-Trip-Tailor-16fa60654bb48033adc0d5082c0f492b)
 
 ### This project is now OFFICIALLY accepted for
 
@@ -183,7 +183,7 @@ This project is licensed under the **MIT License**.  For more details, please re
   <h2>⭐ Star the Repo!</h2>
 </div> 
 
-<p align="center">If you find this project useful and would like to support the project, please consider giving it a ⭐ star on GitHub! Your support helps us grow and improve. Thank you! 🙌</p>
+<p align="center">If you find this project useful and would like to support the project, please consider giving it a ⭐ star on GitHub! Your support helps us grow and improve more. Thank you! 🙌</p>
 
 <h3 align="center">Keep learning and exploring! 🚀</h3>
 <h3 align="center">Happy coding! 👩‍💻🎉 </h3>

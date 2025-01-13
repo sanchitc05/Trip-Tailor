@@ -1,6 +1,10 @@
 name: Greetings
 
-on: [pull_request_target, issues]
+on: 
+  issues:
+    types: [opened] # Trigger only when a new issue is opened
+  pull_request_target:
+    types: [opened] # Trigger only when a new pull request is opened
 
 jobs:
   greeting:
@@ -11,6 +15,26 @@ jobs:
     steps:
     - uses: actions/github-script@v6
       with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        issue-message: " Thank you for raising an issue! We will review it shortly. Stay tuned!"
-        pr-message: " 🎉 Thank you for your contribution!  We appreciate your support in making this project better."
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          const { eventName, payload, repo } = context;
+
+          if (eventName === 'issues') {
+            if (payload.action === 'opened') { // Ensure it's only for newly opened issues
+              await github.rest.issues.createComment({
+                issue_number: payload.issue.number,
+                owner: repo.owner,
+                repo: repo.repo,
+                body: 'Thank you for raising an issue! We will review it shortly. Stay tuned!'
+              });
+            }
+          } else if (eventName === 'pull_request_target') {
+            if (payload.action === 'opened') { // Ensure it's only for newly opened pull requests
+              await github.rest.issues.createComment({
+                issue_number: payload.pull_request.number,
+                owner: repo.owner,
+                repo: repo.repo,
+                body: '🎉 Thank you for your contribution! We appreciate your support in making this project better.'
+              });
+            }
+          }

@@ -1,0 +1,5 @@
+django
+requests
+pandas
+python-dotenv
+google-generativeai>=0.8.2

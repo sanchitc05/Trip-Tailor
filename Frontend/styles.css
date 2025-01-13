@@ -1,3 +1,11 @@
+html{
+    scroll-behavior: smooth;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 body {
     margin: 0;
     padding: 0;
@@ -13,10 +21,11 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;  
-    background: rgba(0, 0, 0, 0.7);
+    background-image: linear-gradient(to right,#0e162b, #2a2a48,#0e162b);
     position: sticky;
     top: 0;
     z-index: 1000;
+    height:90px;
     width: 100%;
     box-sizing: border-box; 
 }
@@ -28,16 +37,23 @@ body {
 }
 
 .navbar-links {
+    
     display: flex;
-    gap: 20px;  
+    gap: 30px;  
     list-style: none;
+    margin-right:20px;
 }
 
 .navbar-link {
     text-decoration: none;
     color: #fff;
-    font-size: 16px;
-    font-weight: 400;
+    font-size: 20px;
+    font-weight: 300;
+    transition: color 0.3s ease;
+   
+}
+.navbar-link:hover{
+    text-decoration: underline;
     transition: color 0.3s ease;
 }
 
@@ -54,7 +70,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #fff;
+    color: #fffffff1;
     text-align: center;
     width: 100%;
     overflow: hidden; 
@@ -85,20 +101,27 @@ body {
 
 .cta-button {
     background-color: #FFD369;
-    padding: 15px 25px;
+    padding: 20px 20px;
     font-size: 18px;
-    color: #1B1B2F;
+    color: #0A101F;
+    text-decoration: none;
     border: none;
-    border-radius: 5px;
+    border-radius: 30px;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 30px;
     font-weight: 600;
     transition: background-color 0.3s ease;
+    display: inline-block; 
 }
 
 .cta-button:hover {
-    background-color: #FFC947;
+    background: rgba(0, 0, 0, 0.7);
+    transform: scale(1.1);
+    box-shadow: 0px 4px 15px rgb(227, 223, 220);
+    color: white;
 }
+
+ 
 
 /* Features Section */
 .features {
@@ -139,6 +162,196 @@ body {
 .feature-description {
     font-size: 16px;
 }
+/* most popular destination section */
+a {
+  color: white;
+}
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 9px;
+  }
+  
+  .popular-destinations {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .destination-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .destination-box {
+    width: 250px;
+    height: 350px;
+    background-color: #2e3a59;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease;
+    margin: 10px;
+
+  }
+  
+  .destination-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .destination-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+  }
+  
+  .destination-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+  }
+  
+  .destination-box p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  
+  .destination-box:hover {
+    transform: scale(1.1);
+  }
+  
+  .destination-box::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.2));
+    transition: left 0.5s ease;
+  }
+  
+  .destination-box:hover::after {
+    left: 100%;
+  }
+ 
+  .rotate-btn
+  {
+    border: none;
+    border-radius: 9px;
+    font-weight: bold;
+    background-color: #ffffff;
+    padding: 1% 7%;
+    cursor: pointer;
+  }
+
+.destination-box {
+    width: 250px;
+    height: 350px;
+    background-color: #2e3a59;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.6s ease;
+    margin: 10px;
+    transform-style: preserve-3d;
+  }
+  
+  .destination-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+  }
+  
+  .destination-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    color: white;
+    text-align: center;
+    font-size: 1rem;
+    z-index: 2;
+  }
+  
+  .destination-box-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1rem;
+    padding: 10px;
+    z-index: 1;
+    opacity: 0.6; 
+    transform: rotateY(180deg); 
+    text-align: center; 
+  }
+  
+  .destination-box-back div {
+    margin-bottom: 10px;
+    font-weight: bold;
+   text-transform: capitalize;
+   font-size: 1.4rem;
+   border-bottom: 2px solid white;
+  }
+  
+  .destination-box-back ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .destination-box-back li {
+    margin-bottom: 5px; 
+    font-weight: bold;
+    background-color: #ffffff;
+    color: black;
+  }
+  
+  .destination-box-back button {
+    border: none;
+    border-radius: 9px;
+    font-weight: bold;
+    background-color: #f0f8ff7d;
+    padding: 1% 7%;
+    cursor: pointer;
+    margin-top: 10px; /* Space between the list and the button */
+  }
+  
+  
+  .destination-box.flipped .destination-info {
+    display: none; /* Hide front content when flipped */
+  }
+  
+  .destination-box.flipped .destination-box-back {
+    display: flex; /* Show back content when flipped */
+  }
+  
+  .destination-box.flipped {
+    transform: rotateY(180deg); /* Flip the box when flipped */
+  }
+  
+
+
+
 
 /* FAQ Section */
 .faq {
@@ -148,13 +361,14 @@ body {
     max-width: 900px;
     margin: 40px auto;
     border-radius: 10px;
-    color: #F3F4F6;
+    color: #F5F5F7;
 }
 
 .faq h2 {
     font-size: 36px;
     margin-bottom: 30px;
-    color: #FFC947;
+    color: #FFCA47;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .faq-item {
@@ -162,12 +376,14 @@ body {
     margin-bottom: 20px;
     border-radius: 8px;
     padding: 15px;
-    color: #F3F4F6;
-    transition: background-color 0.3s ease;
+    color: #F5F5F7;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .faq-item:hover {
-    background-color: #003366;
+    background-color: #354F66;
+    transform: scale(1.02);
 }
 
 .faq-question {
@@ -184,7 +400,12 @@ body {
     display: none;
     font-size: 16px;
     margin-top: 10px;
-    color: #F3F4F6;
+    line-height: 1.5;
+    color: #D9E2EC;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
 }
 
 .faq-question:hover {
@@ -199,6 +420,8 @@ body {
 
 .faq-item.open .faq-answer {
     display: block;
+    opacity: 1;
+    max-height: 500px;
 }
 
 .faq-item.open .faq-icon {
@@ -229,7 +452,71 @@ body {
     border-radius: 5px;
 }
 
+/* Scroll to Top Button */
+#scrollToTopBtn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #FFD369;
+    color: #0A101F;
+    padding: 15px 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+}
+
+#scrollToTopBtn:hover {
+    background-color: #FFCA47;
+}
+
+.top-link {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.top-link.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.top-link.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
 /* Media Queries */
+
+@media (max-width: 1024px) {
+    .navbar-logo {
+        font-size: 24px;
+    }
+
+    .navbar-links {
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+    }
+
+    .navbar-link {
+        font-size: 18px;
+    }
+
+    .hero-content {
+        font-size: 45px;
+    }
+
+    .hero-subtext {
+        font-size: 20px;
+    }
+
+    .cta-button {
+        padding: 15px 25px;
+        font-size: 16px;
+    }
+}
+
 @media (max-width: 768px) {
     .navbar-logo {
         font-size: 24px;
@@ -245,17 +532,19 @@ body {
         width: 100%;
         padding: 20px 0;
         gap: 10px;
-        
+    }
+    .navbar-link{
+        margin: 7px;
     }
 
     .navbar-links.show {
         display: flex;
-        
     }
 
     .hamburger {
         display: flex;
     }
+
     .hero-content {
         font-size: 40px;
     }
@@ -267,17 +556,15 @@ body {
     .cta-button {
         padding: 12px 20px;
         font-size: 16px;
+        padding: 5px 5px;
     }
 }
 
 @media (max-width: 480px) {
-    /* .navbar {
-        padding: 10px 15px;
-    }
-
     .navbar-links {
-        gap: 10px;
-    } */
+        margin: 30px 0px;
+        width: 100%;
+    }
 
     .hero-content {
         font-size: 35px;
