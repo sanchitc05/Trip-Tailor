@@ -6,6 +6,12 @@ html{
     padding: 0;
     box-sizing: border-box;
   }
+
+*{
+      font-family: "Quicksand", serif;
+      font-weight: 300;
+      font-style: normal;
+  }
 body {
     margin: 0;
     padding: 0;
@@ -37,7 +43,7 @@ body {
 }
 
 .navbar-links {
-    
+
     display: flex;
     gap: 30px;  
     list-style: none;
@@ -48,7 +54,7 @@ body {
     text-decoration: none;
     color: #fff;
     font-size: 20px;
-    font-weight: 300;
+    font-weight: 400;
     transition: color 0.3s ease;
    
 }
@@ -65,12 +71,13 @@ body {
 .hero {
     position: relative;
     height: 100vh;
-    background: url(./Images/travel-home.jpg) center/cover no-repeat;
+    background: url(./Images/bg-bnner.png) center/cover no-repeat;
     background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #fffffff1;
+    text-shadow: 0px 2px 2px #0A101F;
     text-align: center;
     width: 100%;
     overflow: hidden; 
@@ -82,14 +89,14 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(157, 227, 245, 0.263);
 }
 
 .hero-content {
     position: relative;
     z-index: 10;
-    font-size: 50px;
-    font-weight: 600;
+    font-size: 40px;
+    font-weight: 800;
     letter-spacing: 2px;
 }
 
