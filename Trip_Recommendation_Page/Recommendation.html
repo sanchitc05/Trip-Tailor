@@ -5,11 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Travel Recommendation</title>
   <link rel="stylesheet" href="Recommendation.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../Frontend/styles.css">
+  <link rel="stylesheet" href="../Frontend/footer.css">
 </head>
 <body>
-  <header>
-    <a href="../index.html">Back to Home</a>
-  </header>
+
+  <!-- Navbar -->
+<nav class="navbar">
+  <div class="navbar-logo"><img src="../logo.png" style="height:80px;width:120px;padding-top:2px;"></div>
+  <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+  </div>
+  <ul class="navbar-links">
+      <li><a href="../index.html" class="navbar-link">Home</a></li> 
+      <li><a href="../index.html#features" class="navbar-link">Features</a></li>
+      <li><a href="../index.html#faq" class="navbar-link">FAQs</a></li>
+      <li><a href="../contributors/contributor.html" class="navbar-link">Contributors</a></li>
+      <li><a href="../contact_us_page/contactus.html" class="navbar-link">Contact</a></li>  
+      <li><a href="../signin/sign-in.html" class="navbar-link">Sign In   <i class="fa-solid fa-arrow-right-to-bracket"></i></a></li>  
+  </ul>
+</nav>
+
 
   <section id="recommendation" class="recommendation-section">
     <h1>Travel Recommendation</h1>
@@ -35,6 +54,63 @@
     <!-- Social Links -->
    
   </section>
+
+
+
+  <!-- footer here -->
+<footer>
+  <div class="footer-content">
+      <div class="footer-section">
+          <h3>Trip Tailor</h3>
+          <p>Personalized travel planning made easy-explore destinations and create memories.</p>
+          <div class="social-links">
+              <a href="" target="_blank" aria-label="Facebook"><i
+                      class="fab fa-facebook"></i></a>
+              <a href="" target="_blank" aria-label="Twitter"><i
+                      class="fab fa-twitter"></i></a>
+              <a href="" target="_blank" aria-label="Instagram"><i
+                      class="fab fa-instagram"></i></a>
+              <a href="" target="_blank" aria-label="YouTube"><i
+                      class="fab fa-youtube"></i></a>
+              <a href="" target="_blank" aria-label="Linkedin"><i
+                      class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+      </div>
+
+      <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+              <li><a href="../index.html#hero">Home</a></li>
+              <li><a href="../index.html#wisdom">About Us</a></li>
+              <li><a href="../index.html#content">Our Trips</a></li>
+              <li><a href="../contact_us_page/contactus.html">Contact</a></li>
+          </ul>
+      </div>
+
+      <div class="footer-section">
+          <h4>Travel Planner</h4>
+          <ul>
+              <!-- need to add respective page link -->
+              <li><a href="Trip_Recommendation_Page/Recommendation.html">Planner</a></li>
+              <li><a href="#hero">Duration</a></li>
+              <li><a href="#hero">Experiences</a></li>
+          </ul>
+      </div>
+
+      <div class="footer-section">
+          <h4 style="margin-bottom: 40px;">Contact Us</h4>
+          <ul class="contact-info" style="margin-top: -20px;">
+              <li><i class="fas fa-envelope"></i><a href="mailto:info@StandOutPlatform.edu"
+                      style="margin-left: -5px;">info@TripTailor.in</a></li>
+              <li><i class="fas fa-map-marker-alt"></i><span>India</span></li>
+          </ul>
+      </div>
+  </div>
+
+  <div class="footer-bottom">
+      <p> &copy; 2024 Trip Tailor</p>
+  </div>
+</footer>
 
   <script src="Recommendation.js"></script>
 </body>

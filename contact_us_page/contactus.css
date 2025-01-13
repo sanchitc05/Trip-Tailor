@@ -9,11 +9,19 @@ body {
   }
   
 
-/* Header */
-header {
-    text-align: left; /* Align text to the left */
-    margin-top: 20px;
-    padding-left: 20px; /* Add left padding to position the button */
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;  
+  background-image: linear-gradient(to right,#0e162b, #2a2a48,#0e162b);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height:90px;
+  width: 100%;
+  box-sizing: border-box; 
 }
 .navbar {
   display: flex;
@@ -69,29 +77,36 @@ header {
   
 }
 
-header a {
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: #0A101F; /* Dark blue background */
-    color: #FFD369; /* Yellow text color */
-    font-size: 1rem;
-    font-weight: bold; /* Make the font bold */
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+.navbar-logo {
+  font-size: 25px;
+  font-weight: 600;
+  color: #FFD369;
 }
 
-header a:hover {
-    background-color: #FFD369; /* Lighter yellow */
-    color: #071d32; /* Dark blue text on hover */
-    transform: translateY(-3px); /* Slight upward movement */
+.navbar-links {
+  
+  display: flex;
+  gap: 30px;  
+  list-style: none;
+  margin-right:20px;
 }
 
-header a:active {
-    transform: translateY(2px); /* Button presses down slightly on click */
+.navbar-link {
+  text-decoration: none;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 300;
+  transition: color 0.3s ease;
+ 
+}
+.navbar-link:hover{
+  text-decoration: underline;
+  transition: color 0.3s ease;
 }
 
-
+.navbar-link:hover {
+  color: #FFD369;
+}
 
   /* Contact Section */
   .contact-section {
@@ -181,4 +196,68 @@ header a:active {
   .social-links a:hover {
     color: #FFD369; /* Lighter yellow */
   }
+
+  /* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+
+  .navbar-logo {
+    font-size: 24px;
+}
+
+.navbar-links {
+  
+    display: none;
+    flex-direction: column;
+    background-color: #1B1B2F;
+    position: absolute;
+    top: 65%;
+    right: 0;
+    width: 100%;
+    padding: 20px 0;
+    gap: 10px;
+    margin: 30px -5px;
+  width: 100%;
+    
+}
+
+.navbar-link{
+  padding: 5px 5px;
+}
+
+.navbar-links.show {
+    display: flex;
+    
+}
+
+.hamburger {
+    display: flex;
+}
+  .container {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  
+  
+}
   
