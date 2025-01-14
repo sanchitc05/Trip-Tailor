@@ -3,6 +3,38 @@
     padding: 0;
     box-sizing: border-box;
   }
+  @media (max-width: 768px) {
+    select, input {
+        width: 90%; 
+    }
+    #result {
+        width: 90%; /* Adjust result container width for mobile */
+    }
+
+    form {
+        margin-top: 10px; /* Reduce top margin for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem; /* Adjust heading size for smaller screens */
+    }
+
+    select, input {
+        width: 95%; /* Maximize input width for very small screens */
+    }
+
+    #result {
+        width: 95%; /* Adjust result width for very small screens */
+    }
+
+    form {
+        margin-top: 5px; /* Further reduce top margin for smaller screens */
+    }
+}
+
+
 body {
     margin: 0;
     padding: 0;
