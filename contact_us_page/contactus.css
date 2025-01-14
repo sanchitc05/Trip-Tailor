@@ -7,22 +7,16 @@ body {
     background: #0A101F;
     color: #fff;
   }
+header{
+     text-align: left; 
+    margin-top: 20px;
+    padding-left: 20px;
+}
+    
   
 
 /* Navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;  
-  background-image: linear-gradient(to right,#0e162b, #2a2a48,#0e162b);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  height:90px;
-  width: 100%;
-  box-sizing: border-box; 
-}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -63,9 +57,9 @@ body {
   font-weight: 300;
   transition: color 0.3s ease;
   transition: transform 0.3s, background-color 0.3s, color 0.3s;
-
- 
 }
+ 
+
 .navbar-link:hover{
   text-decoration: underline;
   transition: color 0.3s ease;
@@ -85,31 +79,18 @@ body {
   padding: 10px 18px;
   font-size: 14px;
 }
-
-.navbar-links {
-  
-  display: flex;
-  gap: 30px;  
-  list-style: none;
-  margin-right:20px;
+header a:hover {
+    background-color: #FFD369; /* Lighter yellow */
+    color: #071d32; /* Dark blue text on hover */
+    transform: translateY(-3px); /* Slight upward movement */
 }
 
-.navbar-link {
-  text-decoration: none;
-  color: #fff;
-  font-size: 20px;
-  font-weight: 300;
-  transition: color 0.3s ease;
- 
-}
-.navbar-link:hover{
-  text-decoration: underline;
-  transition: color 0.3s ease;
+header a:active {
+    transform: translateY(2px); /* Button presses down slightly on click */
 }
 
-.navbar-link:hover {
-  color: #FFD369;
-}
+
+
 
   /* Contact Section */
   .contact-section {
