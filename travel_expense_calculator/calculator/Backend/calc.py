@@ -11,9 +11,9 @@ load_dotenv()
 
 # Fetch API credentials from environment variables
 API_KEY = os.getenv("FLIGHTAPIKEY")
-# access_token = os.getenv("FLIGHTACCESSTOK")
+access_token = os.getenv("FLIGHTACCESSTOK")
 # access_token = authenticate()
-access_token = 'UvLoJyUGdlANHdsjHkjUvO2cyTkW'
+# access_token = 'UvLoJyUGdlANHdsjHkjUvO2cyTkW'
 
 def calculate_expense(source, destination, mode, departure_date=None, return_date=None, fuel_type=None, bus_type=None, train_class=None, accommodation_type=None):
     # Authenticate and get an access token
