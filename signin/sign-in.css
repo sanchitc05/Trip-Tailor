@@ -176,8 +176,57 @@ body {
     display: none; 
 }
 
+  /* Hamburger Menu */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+  }
+  
+  .hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 5px;
+  }
+  
+
 /* Responsive Design for smaller screens */
 @media (max-width: 768px) {
+    .navbar-logo {
+        font-size: 24px;
+    }
+    
+    .navbar-links {
+      
+        display: none;
+        flex-direction: column;
+        background-color: #1B1B2F;
+        position: absolute;
+        top: 65%;
+        right: 0;
+        width: 100%;
+        padding: 20px 0;
+        gap: 10px;
+        margin: 30px -5px;
+      width: 100%;
+        
+    }
+    
+    .navbar-link{
+      padding: 5px 5px;
+    }
+    
+    .navbar-links.show {
+        display: flex;
+        
+    }
+    
+    .hamburger {
+        display: flex;
+    }
     .modal {
         width: 90%; 
         padding: 20px; 
