@@ -32,7 +32,10 @@ body {
     font-size: 25px;
     font-weight: 600;
     color: #FFD369;
-}
+    padding-top: 12px;
+    padding: 10px 18px;
+    font-size: 14px;
+  }
 
 /* Navbar Links */
 .navbar-links {
