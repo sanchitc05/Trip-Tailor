@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -32,4 +32,181 @@
         <p>© 2025 Trip Tailor. All rights reserved.</p>
     </footer>
 </body>
+</html> -->
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Travel Expense Calculator</title>
+    <script>
+        function updateForm() {
+            const mode = document.getElementById("mode").value;
+            const additionalFields = document.getElementById("additional-fields");
+
+            // Clear previous fields
+            additionalFields.innerHTML = "";
+
+            if (mode === "flight") {
+                additionalFields.innerHTML = `
+                    <label for="departure-date">Departure Date:</label>
+                    <input type="date" id="departure-date" name="departure_date" required><br>
+
+                    <label for="return-date">Return Date (Optional):</label>
+                    <input type="date" id="return-date" name="return_date"><br>
+                `;
+            } else if (mode === "car") {
+                additionalFields.innerHTML = `
+                    <label for="fuel-type">Fuel Type:</label>
+                    <select id="fuel-type" name="fuel_type" required>
+                        <option value="petrol">Petrol</option>
+                        <option value="diesel">Diesel</option>
+                    </select><br>
+                `;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Travel Expense Calculator</h1>
+    <form method="post" action="/calculate/">
+        {% csrf_token %}
+        <label for="source">Source City:</label>
+        <input type="text" id="source" name="source" required><br>
+
+        <label for="destination">Destination City:</label>
+        <input type="text" id="destination" name="destination" required><br>
+
+        <label for="mode">Mode of Transport:</label>
+        <select id="mode" name="mode" required onchange="updateForm()">
+            <option value="flight">Flight</option>
+            <option value="bus">Bus</option>
+            <option value="train">Train</option>
+            <option value="car">Car</option>
+        </select><br>
+
+        <div id="additional-fields"></div>
+
+        <button type="submit" >Calculate</button>
+    </form>
+</body>
+</html> -->
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Expense Calculator</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <script>
+        function updateForm() {
+            const mode = document.getElementById("mode").value;
+            const additionalFields = document.getElementById("additional-fields");
+            const accommodation = document.getElementById("accommodation").value;
+
+            // Clear previous fields
+            additionalFields.innerHTML = "";
+
+            if (mode === "flight") {
+                additionalFields.innerHTML = `
+                    <label for="departure-date">Departure Date:</label>
+                    <input type="date" id="departure-date" name="departure_date" required><br>
+
+                    <label for="return-date">Return Date (Optional):</label>
+                    <input type="date" id="return-date" name="return_date"><br>
+                `;
+            } else if (mode === "car") {
+                additionalFields.innerHTML = `
+                    <label for="fuel-type">Fuel Type:</label>
+                    <select id="fuel-type" name="fuel_type" required>
+                        <option value="petrol">Petrol</option>
+                        <option value="diesel">Diesel</option>
+                    </select><br>
+                `;
+            } else if (mode === 'bus'){
+                additionalFields.innerHTML = `
+                    <label for="bus-type">Bus Type:</label>
+                    <select id="bus-type" name="bus_type" required>
+                        <option value="State Transport">State Transport</option>
+                        <option value="Private_AC">Private_AC</option>
+                        <option value="Private_Non-AC">Private_Non-AC</option>
+                    </select><br>
+                `;
+            } else if (mode === 'train'){
+                additionalFields.innerHTML = `
+                    <label for="train-class">Train Type:</label>
+                    <select id="train-class" name="train_class" required>
+                        <option value="1AC">1AC</option>
+                        <option value="2AC">2AC</option>
+                        <option value="3AC">3AC</option>
+                        <option value="Sleeper">Sleeper</option>
+                        <option value="General">General</option>
+                    </select><br>
+                `;
+            }
+        }
+
+        async function calculateExpense(event) {
+            event.preventDefault(); // Prevent the form from reloading the page
+
+            const formData = new FormData(document.getElementById("expense-form"));
+            const response = await fetch('/calculate/', {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}',
+                },
+                body: formData,
+            });
+
+            const data = await response.json();
+            const resultDiv = document.getElementById("result");
+
+            if (data.success) {
+                resultDiv.innerHTML = `
+                    <h3>Calculation Result</h3>
+                    <p>Fare: ₹${data.result.fare}</p>
+                    <p>Accommodation Cost: ₹${data.result.accommodation_cost}</p>
+                    <h4><strong>Total Expense: ₹${data.result.total_expense}</strong></h4>
+                `;
+            } else {
+                resultDiv.innerHTML = `<p style="color: red;">Error: ${data.error}</p>`;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Travel Expense Calculator</h1>
+    <form id="expense-form" onsubmit="calculateExpense(event)">
+        {% csrf_token %}
+        <label for="source">Source City:</label>
+        <input type="text" id="source" name="source" placeholder="Enter Departure City" required><br>
+
+        <label for="destination">Destination City:</label>
+        <input type="text" id="destination" name="destination" placeholder="Enter Destination City" required><br>
+
+        <label for="mode">Mode of Transport:</label>
+        <select id="mode" name="mode" required onchange="updateForm()">
+            <option value="flight">Flight</option>
+            <option value="bus">Bus</option>
+            <option value="train">Train</option>
+            <option value="car">Car</option>
+        </select><br>
+
+        <div id="additional-fields"></div>
+        <label for="accommodation">Accommodation Type:</label>
+        <select id="accommodation" name="accommodation" required onchange="updateForm()">
+            <option value="budget">Budget</option>
+            <option value="midrange">Mid-range</option>
+            <option value="luxury">Luxury</option>
+        </select><br>
+
+        <button type="submit">Calculate</button>
+    </form>
+
+    <div id="result"></div>
+</body>
 </html>
+
