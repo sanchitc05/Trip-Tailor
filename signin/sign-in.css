@@ -61,7 +61,7 @@ body {
 
 /* Modal */
 .modal {
-    width: 80%; 
+    /* width: 80%;  */
     max-width: 500px; 
     padding: 30px;
     border-radius: 8px;
@@ -71,9 +71,9 @@ body {
 }
 
 /* Modal Content */
-.modal-content {
+/* .modal-content {
     width: 90%;
-}
+} */
 
 /* Close Button */
 /* .close-btn {
@@ -100,7 +100,7 @@ body {
   }
 
   .auth-container {
-    width: 100%;
+    width: 70vw;
     max-width: 420px;
     padding: 2.5rem;
     background: var(--bg-secondary);
