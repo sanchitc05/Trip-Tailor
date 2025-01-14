@@ -81,6 +81,9 @@ body {
   font-size: 25px;
   font-weight: 600;
   color: #FFD369;
+  padding-top: 12px;
+  padding: 10px 18px;
+  font-size: 14px;
 }
 
 .navbar-links {
@@ -110,7 +113,7 @@ body {
 
   /* Contact Section */
   .contact-section {
-    padding: 50px 20px;
+    
     text-align: center;
     
   }
@@ -197,6 +200,14 @@ body {
     color: #FFD369; /* Lighter yellow */
   }
 
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 20px; 
+  background-color: #1B1B2F; 
+  color: #E5E7EB; 
+}
+
   /* Hamburger Menu */
 .hamburger {
   display: none;
@@ -217,8 +228,13 @@ body {
 @media (max-width: 768px) {
 
   .navbar-logo {
-    font-size: 24px;
-}
+    font-size: 20px;
+    font-weight: 600;
+    color: #FFD369;
+    padding-top: 12px;
+    padding: 10px 18px;
+    font-size: 14px;
+  }
 
 .navbar-links {
   
@@ -259,5 +275,153 @@ body {
 
   
   
+
 }
+
+  
+footer {
+  color: #ffffff;
+  background: rgb(2, 13, 31);
+  padding: 50px 0;
+  width: 100%;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Logo and Description Section */
+.footer-section:first-child {
+  grid-column: span 1;
+}
+
+.footer-section h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+.footer-section p {
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* Navigation Links */
+.footer-section h4 {
+  font-size: 1.2rem;
+  margin-bottom: 1.2rem;
+  color: #fff;
+  font-weight: 500;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-section ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  opacity: 1;
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+.social-links a {
+  color: #fff;
+  font-size: 1.3rem;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.social-links a:hover {
+  opacity: 1;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  margin-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+  color: #fff;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Contact Info */
+.contact-info li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.contact-info li i {
+  font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .footer-content {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+  }
+  
+  .footer-section:first-child {
+      grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+      grid-template-columns: 1fr;
+      padding: 0 20px;
+  }
+  
+  .footer-section:first-child {
+      grid-column: span 1;
+  }
+  
+  .footer-section {
+      text-align: center;
+  }
+  
+  .social-links {
+      justify-content: center;
+  }
+  
+  .contact-info li {
+      justify-content: center;
+  }
+}
+
   
