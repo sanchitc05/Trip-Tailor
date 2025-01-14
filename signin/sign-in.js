@@ -55,3 +55,9 @@ function clearError() {
     errorMessage.style.display = 'none';
     document.getElementById('confirmPassword').classList.remove('error');
 }
+
+
+document.querySelector('.hamburger').addEventListener('click', () => {
+    const navLinks = document.querySelector('.navbar-links');
+    navLinks.classList.toggle('show');
+    });
