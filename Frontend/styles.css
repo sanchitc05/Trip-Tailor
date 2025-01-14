@@ -31,9 +31,11 @@ body {
 }
 
 .navbar-logo {
-    font-size: 25px;
+    font-size: 30px;
     font-weight: 600;
     color: #FFD369;
+    padding-top: 12px;
+    padding-left: 12px;
 }
 
 .navbar-links {
