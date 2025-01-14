@@ -93,6 +93,70 @@ body {
     word-wrap: break-word; /* Break long words */
 }
 
+.result-container {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.recommendation-card {
+    background: #1B1B2F;
+    color: #dcdcdc;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.recommendation-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.card-header i {
+    font-size: 2rem;
+    color: #FFD369;
+}
+
+#recommendation-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin: 15px 0;
+    color: #dcdcdc;
+}
+
+#explore-btn {
+    padding: 10px 20px;
+    background-color: #FFD369;
+    color: #031527;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+#explore-btn:hover {
+    transform: scale(1.05);
+    background-color: #FFC857;
+}
+
+#explore-btn:active {
+    transform: scale(0.95);
+}
+
+
 /* Form */
 .form-container {
     background: #1B1B2F;
