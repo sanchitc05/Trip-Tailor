@@ -55,11 +55,14 @@
 </body>
 </html> -->
 
-
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel Expense Calculator</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
     <script>
         function updateForm() {
             const mode = document.getElementById("mode").value;
@@ -128,7 +131,7 @@
                     <h3>Calculation Result</h3>
                     <p>Fare: ₹${data.result.fare}</p>
                     <p>Accommodation Cost: ₹${data.result.accommodation_cost}</p>
-                    <p><strong>Total Expense: ₹${data.result.total_expense}</strong></p>
+                    <h4><strong>Total Expense: ₹${data.result.total_expense}</strong></h4>
                 `;
             } else {
                 resultDiv.innerHTML = `<p style="color: red;">Error: ${data.error}</p>`;
@@ -141,10 +144,10 @@
     <form id="expense-form" onsubmit="calculateExpense(event)">
         {% csrf_token %}
         <label for="source">Source City:</label>
-        <input type="text" id="source" name="source" required><br>
+        <input type="text" id="source" name="source" placeholder="Enter Departure City" required><br>
 
         <label for="destination">Destination City:</label>
-        <input type="text" id="destination" name="destination" required><br>
+        <input type="text" id="destination" name="destination" placeholder="Enter Destination City" required><br>
 
         <label for="mode">Mode of Transport:</label>
         <select id="mode" name="mode" required onchange="updateForm()">

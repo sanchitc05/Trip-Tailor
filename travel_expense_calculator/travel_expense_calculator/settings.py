@@ -118,6 +118,11 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+STATICFILES_DIRS = [
+    # BASE_DIR / "Frontend",  # Include the Frontend folder for direct CSS linking
+    BASE_DIR / "travel_expense_calculator"
+]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
