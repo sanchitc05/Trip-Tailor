@@ -27,6 +27,7 @@
 
     #result {
         width: 95%; /* Adjust result width for very small screens */
+        margin-left: 10px;
     }
 
     form {
