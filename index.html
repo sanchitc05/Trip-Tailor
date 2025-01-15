@@ -11,6 +11,7 @@
 </head>
 
 <body>
+
     <!-- Navbar -->
     <nav class="navbar">
         <div class="navbar-logo"><img src="logo.png" style="height:80px;width:120px;padding-top:2px;"></div>
@@ -18,6 +19,71 @@
             <span></span>
             <span></span>
             <span></span>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="navbar-logo">
+        <a href="index.html"><img src="../logo.png" style="height:70px;width:90px;padding-top:2px;" alt="Logo"></a>
+    </div>
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <ul class="navbar-links">
+        <li><a href="../index.html" class="navbar-link">Home</a></li> 
+        <li><a href="#features" class="navbar-link">Features</a></li>
+        <li><a href="#faq" class="navbar-link">FAQs</a></li>
+        <li><a href="../contributors/contributor.html" class="navbar-link">Contributors</a></li>
+        <li><a href="../contact_us_page/contactus.html" class="navbar-link">Contact</a></li>  
+        <li><a href="signin/sign-in.html" class="navbar-link">Sign In   <i class="fa-solid fa-arrow-right-to-bracket"></i></a></li>  
+    </ul>
+</nav>
+
+<!-- Hero Section -->
+<section id="hero" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>Your Journey Starts Here</h1>
+        <p class="hero-subtext"><b>Find the best travel options tailored for you</b></p>
+        <a href="Trip_Recommendation_Page/Recommendation.html" class="cta-button">Start Planning with AI</a>
+
+    </div>
+</section>
+
+<section class="features" id="features">
+    <div class="feature-card">
+        <div class="feature-icon">🗺️</div>
+        <div class="feature-title">Route Comparison</div>
+        <p class="feature-description">Compare travel routes to choose the best path.</p>
+    </div>
+    <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <div class="feature-title">Expense Calculator</div>
+        <p class="feature-description">Estimate and compare travel costs to budget smarter.</p>
+    </div>
+    <div class="feature-card">
+        <div class="feature-icon">🏨</div>
+        <div class="feature-title">Accommodation Finder</div>
+        <p class="feature-description">Find stays that fit your preferences and budget.</p>
+    </div> 
+
+    <div class="feature-card">
+       <div class="feature-icon">✈️</div>
+        <a href="index2.html" style="text-decoration: none;">
+            <div class="feature-title">Popular Indian Destinations</div>
+        </a>
+        <p class="feature-description">Take a look at the beautiful destinations that are trending.</p>
+    </div>
+</section>
+
+<section class="faq" id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+        <div class="faq-question">
+            How does Trip Tailor work?
+            <span class="faq-icon">+</span>
+
         </div>
         <ul class="navbar-links">
             <li><a href="../index.html" class="navbar-link">Home</a></li>
@@ -143,6 +209,7 @@
                 </div>
             </div>
 
+
             <div class="footer-section">
                 <h4>Quick Links</h4>
                 <ul>
@@ -217,6 +284,52 @@
         function nextSlide() {
             currentIndex = (currentIndex + 1) % dots.length;
             showSlide(currentIndex);
+
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="../Frontend/aboutUs/aboutus.html">About Us</a></li>
+                <li><a href="#content">Our Trips</a></li>
+                <li><a href="../contact_us_page/contactus.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Travel Planner</h4>
+            <ul>
+                <li><a href="Trip_Recommendation_Page/Recommendation.html">Planner</a></li>
+                <li><a href="#hero">Duration</a></li>
+                <li><a href="#hero">Experiences</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4 style="margin-bottom: 40px;">Contact Us</h4>
+            <ul class="contact-info" style="margin-top: -20px;">
+                <li><i class="fas fa-envelope"></i><a href="mailto:info@StandOutPlatform.edu"
+                        style="margin-left: -5px;">info@triptailor.in</a></li>
+                <li><i class="fas fa-map-marker-alt"></i><span>India</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p> &copy; 2025 Trip Tailor, All Right Reserved</p>
+    </div>
+</footer>
+
+<!-- Scroll to Top Button -->
+<button id="scrollToTopBtn" title="Go to top"><b>↑</b></button>
+<script>
+    const scrollToTopButton = document.getElementById('scrollToTopBtn');
+    const scrollFunc = () => {
+        let y = window.scrollY;
+        if (y > 100) { 
+            scrollToTopButton.className = "top-link show";
+        } else {
+            scrollToTopButton.className = "top-link hide";
+
         }
 
         // Auto-play slides
