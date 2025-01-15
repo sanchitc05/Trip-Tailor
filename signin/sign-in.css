@@ -1,7 +1,7 @@
 /* General Body Styling */
 body {
     font-family: 'Poppins', sans-serif;
-    background: #0A101F;
+    background: #444;
     color: #fff;
     margin: 0;
     padding: 0;
@@ -225,12 +225,23 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     margin-bottom: 1.5rem;
-  }
+ 
+.auth-btn:hover {
 
+    transform: translateY(-5px); /* Lift effect */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Add shadow on hover */
+    color: black;
+    background-color: white;
+
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); 
+
+}
   .submit-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 20px -10px var(--accent);
   }
+
 
   .auth-divider {
     display: flex;
@@ -287,10 +298,15 @@ body {
     font-weight: 500;
     transition: color 0.3s ease;
   }
+.auth-switch-link:hover {
+    color: red;
+    text-decoration: underline;
+}
 
   .auth-link:hover {
     color: var(--accent-hover);
   }
+
 
   @media (max-width: 480px) {
     .auth-container {
