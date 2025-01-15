@@ -1,60 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In / Sign Up</title>
     <link rel="stylesheet" href="sign-in.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
+
 <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-logo"><img src="../logo.png" style="height:70px;width:90px;padding-top:2px;"></div>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="navbar-links">
+            <li><a href="../index.html" class="navbar-link">Home</a></li>
+            <li><a href="../index.html" class="navbar-link">Features</a></li>
+            <li><a href="../index.html" class="navbar-link">FAQs</a></li>
+            <li><a href="../contributors/contributor.html" class="navbar-link">Contributors</a></li>
+            <li><a href="../contact_us_page/contactus.html" class="navbar-link">Contact</a></li>
+            <li><a href="../signin/sign-in.html" class="navbar-link">Sign In <i
+                        class="fa-solid fa-arrow-right-to-bracket"></i></a></li>
+        </ul>
+    </nav>
 
-<!-- Modal for Sign In / Sign Up -->
-<div id="authModal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" id="closeModalBtn">&times;</span>
-        
-        <!-- Sign In Form -->
-        <div id="signInForm" class="auth-form">
-            <h2 class="auth-title">Sign In</h2>
-            <form>
-                <div class="input-group">
-                    <input type="email" placeholder="Email" class="auth-input" required>
+    <!-- Modal for Sign In / Sign Up -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <!-- Sign In Form -->
+            <div id="signInForm" class="auth-container">
+                <div class="auth-header">
+                    <div class="auth-logo">
+                        <i class="fa-solid fa-user-secret"></i>
+                    </div>
+                    <h2 class="auth-title">Welcome back</h2>
+                    <p class="auth-subtitle">Sign in to your account</p>
                 </div>
-                <div class="input-group">
-                    <input type="password" placeholder="Password" class="auth-input" required>
+
+                <form id="signInFormSubmit">
+                    <div class="input-group">
+                        <label class="input-label" for="signInEmail">Email</label>
+                        <input type="email" id="signInEmail" class="input-field" placeholder="name@company.com"
+                            required>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label" for="signInPassword">Password</label>
+                        <input type="password" id="signInPassword" class="input-field" placeholder="Enter your password"
+                            required>
+                    </div>
+
+                    <div class="auth-options">
+                        <label class="remember-me">
+                            <input type="checkbox">
+                            <span>Remember me</span>
+                        </label>
+                        <a href="#" class="forgot-password">Forgot password?</a>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Sign in</button>
+
+                    <div class="auth-divider">
+                        <span>Or continue with</span>
+                    </div>
+
+                    <div class="social-signin">
+                        <button type="button" class="social-btn"><i class="fa-brands fa-google"></i></button>
+                        <button type="button" class="social-btn"><i class="fa-brands fa-github"></i></button>
+                    </div>
+
+                    <div class="auth-footer">
+                        Don't have an account?
+                        <a href="javascript:void(0)" id="switchToSignUp" class="auth-link">Create an account</a>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Sign Up Form -->
+            <div id="signUpForm" class="auth-container" style="display: none;">
+                <div class="auth-header">
+                    <h2 class="auth-title">Create an account</h2>
+                    <p class="auth-subtitle">Sign up to get started</p>
                 </div>
-                <button type="submit" class="auth-btn">Sign In</button>
-                <p class="auth-switch">Don't have an account? <a href="javascript:void(0)" id="switchToSignUp" class="auth-switch-link">Create Account</a></p>
-            </form>
-        </div>
 
- <!-- Sign Up Form -->
-<div id="signUpForm" class="auth-form" style="display: none;">
-    <h2 class="auth-title">Sign Up</h2>
-    <form id="signUpFormSubmit">
-        <div class="input-group">
-            <input type="text" placeholder="Full Name" class="auth-input" id="fullName" required>
-        </div>
-        <div class="input-group">
-            <input type="email" placeholder="Email" class="auth-input" id="email" required>
-        </div>
-        <div class="input-group">
-            <input type="password" placeholder="Password" class="auth-input" id="password" required>
-        </div>
-        <div class="input-group">
-            <input type="password" placeholder="Confirm Password" class="auth-input" id="confirmPassword" required>
-        </div>
-        <!-- Error message will be shown here -->
-        <div id="error-message"></div>
-        <button type="submit" class="auth-btn">Sign Up</button>
-        <p class="auth-switch">Already have an account? <a href="javascript:void(0)" id="switchToSignIn" class="auth-switch-link">Sign In</a></p>
-    </form>
-</div>
+                <form id="signUpFormSubmit">
+                    <div class="input-group">
+                        <label class="input-label" for="fullName">Full Name</label>
+                        <input type="text" id="fullName" class="input-field" placeholder="Enter your full name"
+                            required>
+                    </div>
 
+                    <div class="input-group">
+                        <label class="input-label" for="signUpEmail">Email</label>
+                        <input type="email" id="signUpEmail" class="input-field" placeholder="name@company.com"
+                            required>
+                    </div>
 
+                    <div class="input-group">
+                        <label class="input-label" for="signUpPassword">Password</label>
+                        <input type="password" id="signUpPassword" class="input-field" placeholder="Enter your password"
+                            required>
+                    </div>
+
+                    <div class="input-group">
+                        <label class="input-label" for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" class="input-field"
+                            placeholder="Confirm your password" required>
+                    </div>
+
+                    <div id="error-message" class="error-message"></div>
+
+                    <button type="submit" class="submit-btn">Sign Up</button>
+
+                    <div class="auth-divider">
+                        <span>Or continue with</span>
+                    </div>
+
+                    <div class="social-signin">
+                        <button type="button" class="social-btn"><i class="fa-brands fa-google"></i></button>
+                        <button type="button" class="social-btn"><i class="fa-brands fa-github"></i></button>
+                    </div>
+
+                    <div class="auth-footer">
+                        Already have an account?
+                        <a href="javascript:void(0)" id="switchToSignIn" class="auth-link">Sign In</a>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-</div>
 
-<script src="sign-in.js"></script>
+    <script src="sign-in.js"></script>
 </body>
+
 </html>

@@ -34,7 +34,10 @@ body {
     font-size: 25px;
     font-weight: 600;
     color: #FFD369;
-}
+    padding-top: 12px;
+    padding: 10px 18px;
+    font-size: 14px;
+  }
 
 .navbar-links {
     
@@ -498,8 +501,13 @@ a {
 
 @media (max-width: 1024px) {
     .navbar-logo {
-        font-size: 24px;
-    }
+        font-size: 20px;
+        font-weight: 600;
+        color: #FFD369;
+        padding-top: 12px;
+        padding: 10px 18px;
+        font-size: 14px;
+      }
 
     .navbar-links {
         display: flex;
@@ -527,8 +535,13 @@ a {
 
 @media (max-width: 768px) {
     .navbar-logo {
-        font-size: 24px;
-    }
+        font-size: 20px;
+        font-weight: 600;
+        color: #FFD369;
+        padding-top: 12px;
+        padding: 10px 18px;
+        font-size: 14px;
+      }
 
     .navbar-links {
         display: none;
@@ -564,12 +577,14 @@ a {
     .cta-button {
         padding: 12px 20px;
         font-size: 16px;
+        padding: 5px 5px;
     }
 }
 
 @media (max-width: 480px) {
-    .navbar-link {
-        margin: 8px;
+    .navbar-links {
+        margin: 30px 0px;
+        width: 100%;
     }
 
     .hero-content {

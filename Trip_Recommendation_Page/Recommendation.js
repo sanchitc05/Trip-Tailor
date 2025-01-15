@@ -37,7 +37,17 @@ document.getElementById('travel-form').addEventListener('submit', async function
       if (data.candidates && data.candidates.length > 0) {
         // Extract the recommendation text from the response
         const recommendationText = data.candidates[0].content.parts[0].text || 'No content available';
-        document.getElementById('recommendation-text').textContent = recommendationText;
+        const recommendationResult = document.getElementById('recommendation-result');
+    recommendationResult.innerHTML = `
+      <div class="recommendation-card show">
+        <div class="card-header">
+          <i class="fas fa-map-marker-alt"></i>
+          <h3>Your Travel Recommendation</h3>
+        </div>
+        <p id="recommendation-text">${recommendationText}</p>
+        <button id="explore-btn">Explore More</button>
+      </div>
+    `;
       } else {
         document.getElementById('recommendation-text').textContent = 'No recommendations available at this time.';
       }
@@ -60,4 +70,9 @@ document.getElementById('travel-form').addEventListener('submit', async function
     block: 'start'
   });
   }
+});
+
+document.querySelector('.hamburger').addEventListener('click', () => {
+  const navLinks = document.querySelector('.navbar-links');
+  navLinks.classList.toggle('show');
 });
