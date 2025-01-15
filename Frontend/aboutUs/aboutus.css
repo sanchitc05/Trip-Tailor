@@ -12,6 +12,56 @@
         min-height: 100vh; 
         text-align: center;
     }
+
+    /* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;  
+    background-image: linear-gradient(to right,#0e162b, #2a2a48,#0e162b);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height:90px;
+    width: 100%;
+    box-sizing: border-box;
+    position: fixed; 
+  }
+  
+  .navbar-logo {
+    font-size: 25px;
+    font-weight: 600;
+    color: #FFD369;
+    padding-top: 12px;
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+  
+  .navbar-links {
+    
+    display: flex;
+    gap: 30px;  
+    list-style: none;
+    margin-right:20px;
+  }
+  
+  .navbar-link {
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+    transition: color 0.3s ease;
+   
+  }
+  .navbar-link:hover{
+    text-decoration: underline;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-link:hover {
+    color: #FFD369;
+  }
     h1 {
         color: #ffcc00; 
         font-size: 40px;
@@ -30,11 +80,68 @@
         color: #f7f9fb;
         border-radius: 15px; 
         box-shadow: 0 10px 20px rgba(212, 206, 18, 0.564); 
-        margin: 20px;
+        margin-top: 80px;
         padding: 25px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         text-align: center;
     }
+
+    /* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+  }
+  
+  .hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 5px;
+  }
+
+  /* Responsive Design for Mobile */
+@media (max-width: 768px) {
+
+    .navbar-logo {
+      font-size: 20px;
+      font-weight: 600;
+      padding-top: 12px;
+      padding: 10px 18px;
+      font-size: 14px;
+    }
+  
+  .navbar-links {
     
+      display: none;
+      flex-direction: column;
+      background-color: #1B1B2F;
+      position: absolute;
+      top: 65%;
+      right: 0;
+      width: 100%;
+      padding: 20px 0;
+      gap: 10px;
+      margin: 30px -5px;
+     width: 100%;
+      
+  }
+  
+  .navbar-link{
+    padding: 5px 5px;
+  }
+  
+  .navbar-links.show {
+      display: flex;
+      
+  }
+  
+  .hamburger {
+      display: flex;
+  }
+    
+}
