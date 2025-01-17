@@ -25,13 +25,24 @@ body {
 }
 
 .navbar-logo {
-  font-size: 25px;
-  font-weight: 600;
-  color: #FFD369;
-  padding-top: 12px;
-  padding: 10px 18px;
-  font-size: 14px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
 }
+
+.logo-image {
+  max-width: 100%; /* Ensure the image scales responsively */
+  height: auto; /* Maintain the original aspect ratio */
+  cursor: pointer; /* Add a pointer cursor on hover */
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth animations */
+}
+
+/* Add hover effect */
+.logo-image:hover {
+  transform: scale(1.1); /* Slightly enlarge the logo */
+  opacity: 0.8; /* Make it slightly transparent */
+}
+
 
 .navbar-links {
   
