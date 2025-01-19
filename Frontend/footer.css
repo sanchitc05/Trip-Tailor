@@ -24,6 +24,24 @@ footer {
     margin-bottom: 1rem;
     color: #fff;
     font-weight: 600;
+    position: relative;
+    display: inline-block;
+}
+
+/* Cool underline animation for headings */
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #fff;
+    transition: width 0.3s ease-in-out;
+}
+
+.footer-section h3:hover::after {
+    width: 100%;
 }
 
 .footer-section p {
@@ -50,21 +68,43 @@ footer {
 
 .footer-section ul li {
     margin-bottom: 0.8rem;
+    position: relative;
+    overflow: hidden;
 }
 
+/* Enhanced link animations */
 .footer-section ul li a {
     color: #fff;
     text-decoration: none;
     font-size: 0.95rem;
     opacity: 0.9;
-    transition: opacity 0.3s ease;
+    transition: all 0.3s ease;
+    display: inline-block;
+    position: relative;
+    padding: 2px 0;
+}
+
+.footer-section ul li a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    left: -1000%;
+    background-color: #fff;
+    transition: left 0.3s ease;
 }
 
 .footer-section ul li a:hover {
     opacity: 1;
+    transform: translateX(8px);
 }
 
-/* Social Links */
+.footer-section ul li a:hover::before {
+    left: 0;
+}
+
+/* Social Links with enhanced animations */
 .social-links {
     display: flex;
     gap: 1.2rem;
@@ -75,11 +115,69 @@ footer {
     color: #fff;
     font-size: 1.3rem;
     opacity: 0.9;
-    transition: opacity 0.3s ease;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
 }
 
 .social-links a:hover {
     opacity: 1;
+    transform: translateY(-4px);
+}
+
+/* Pulse effect on social icons */
+.social-links a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: scale(0);
+    transition: transform 0.3s ease;
+}
+
+.social-links a:hover::after {
+    transform: scale(1.5);
+    opacity: 0;
+}
+
+.social-links a .fa-facebook:hover {
+    color: blue;
+}
+.social-links a .fa-twitter:hover {
+    color: rgb(0, 110, 255);
+}
+.social-links a .fa-instagram:hover {
+    color: rgb(255, 0, 85);
+}
+.social-links a .fa-youtube:hover {
+    color: rgb(255, 0, 0);
+}
+.social-links a .fa-linkedin-in:hover {
+    color: rgb(0, 153, 255);
+}
+
+/* Contact Info with hover effects */
+.contact-info li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.contact-info li:hover {
+    transform: translateX(8px);
+}
+
+.contact-info li i {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.contact-info li:hover i {
+    transform: scale(1.2);
 }
 
 /* Footer Bottom */
@@ -94,18 +192,11 @@ footer {
     color: #fff;
     font-size: 0.9rem;
     opacity: 0.8;
+    transition: opacity 0.3s ease;
 }
 
-/* Contact Info */
-.contact-info li {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.8rem;
-}
-
-.contact-info li i {
-    font-size: 1.1rem;
+.footer-bottom p:hover {
+    opacity: 1;
 }
 
 /* Responsive Design */
@@ -114,7 +205,7 @@ footer {
         grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
     }
-    
+
     .footer-section:first-child {
         grid-column: span 2;
     }
@@ -125,19 +216,19 @@ footer {
         grid-template-columns: 1fr;
         padding: 0 20px;
     }
-    
+
     .footer-section:first-child {
         grid-column: span 1;
     }
-    
+
     .footer-section {
         text-align: center;
     }
-    
+
     .social-links {
         justify-content: center;
     }
-    
+
     .contact-info li {
         justify-content: center;
     }
