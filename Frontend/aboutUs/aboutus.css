@@ -1,18 +1,17 @@
-    /* AboutUS Body Styling */
+ /* AboutUS Body Styling */
     body {
-        background-color: #000000; 
-        color: #0e0e0e; 
-        font-family: 'Poppins', sans-serif;
-        padding: 20px;
-        box-sizing: border-box;
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #0A101F;
+        color: #fff;
+        overflow-x: hidden; 
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         min-height: 100vh; 
-        text-align: center;
-    }
-
+      }
     /* Navbar */
 .navbar {
     display: flex;
@@ -80,12 +79,13 @@
         color: #f7f9fb;
         border-radius: 15px; 
         box-shadow: 0 10px 20px rgba(212, 206, 18, 0.564); 
-        margin-top: 80px;
+        margin-top: 150px;
         padding: 25px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         text-align: center;
+        margin-bottom: 80px;
     }
 
     /* Hamburger Menu */
@@ -151,8 +151,8 @@
     color: #ffffff;
     background: rgb(2, 13, 31);
     padding: 50px 0;
-    width: 100%;
-    margin-top: 80px;
+    width: 100vw;
+    margin: 0;
 }
 
 .footer-content {
@@ -238,6 +238,7 @@
     padding-top: 2rem;
     margin-top: 3rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 0;
 }
 
 .footer-bottom p {
@@ -248,10 +249,11 @@
 
 /* Contact Info */
 .contact-info li {
+    display: flex;
+    align-items: center;
     gap: 0.5rem;
     margin-bottom: 0.8rem;
 }
-
 .contact-info li i {
     font-size: 1.1rem;
 }
