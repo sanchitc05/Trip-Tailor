@@ -547,40 +547,6 @@ a {
     border-radius: 5px;
 }
 
-/* Scroll to Top Button */
-#scrollToTopBtn {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    background-color: #FFD369;
-    color: #0A101F;
-    padding: 15px 20px;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s ease;
-}
-
-#scrollToTopBtn:hover {
-    background-color: #FFCA47;
-}
-
-.top-link {
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.top-link.show {
-    opacity: 1;
-    visibility: visible;
-}
-
-.top-link.hide {
-    opacity: 0;
-    visibility: hidden;
-}
-
 /* Media Queries */
 
 @media (max-width: 1024px) {
@@ -701,6 +667,8 @@ a {
     transition: opacity 0.5s ease; /* Smooth fade-in effect */
 }
 
+
+/* Scroll to Top Button */
 #scrollButton.visible {
     opacity: 1; /* Fully visible */
     pointer-events: auto; /* Enable interaction */
@@ -712,10 +680,10 @@ a {
     height: 100%;
     border-radius: 50%;
     background: conic-gradient(
-        orange 0deg,
+        #FFCA47 0deg,
         orange var(--scroll-progress, 0deg),
-        #ddd var(--scroll-progress, 0deg),
-        #ddd 360deg
+        #d91e1e00 var(--scroll-progress, 0deg),
+        #d5e7ec00 360deg
     );
     transform: rotate(-90deg); /* Start animation from top */
     display: flex;
@@ -727,7 +695,7 @@ a {
 .inner-circle {
     width: 45px;
     height: 45px;
-    background: white;
+    background: #0a101f;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -737,7 +705,7 @@ a {
 
 .arrow {
     font-size: 18px;
-    color: orange;
+    color: #ffbc15;
     font-weight: bold;
     transform: rotate(90deg); /* Fixed direction to the right */
 }
