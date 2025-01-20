@@ -1,6 +1,6 @@
     /* AboutUS Body Styling */
     body {
-        background-color: #ffffff; 
+        background-image: linear-gradient(to right, #0e162b, #2a2a48, #0e162b);
         color: #0e0e0e; 
         font-family: 'Poppins', sans-serif;
         box-sizing: border-box;
@@ -70,7 +70,7 @@
         padding: 120px 0;
         position: relative;
         overflow: hidden;
-        background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+        background-image: linear-gradient(to right, #0e162b, #2a2a48, #0e162b);
     }
     
     .about-container {
@@ -130,7 +130,7 @@
     
     .section-title {
         font-size: 2.8rem;
-        color: #2c3e50;
+        color: #a7acb1;
         margin-bottom: 25px;
         line-height: 1.2;
         font-weight: 700;
@@ -139,7 +139,7 @@
     .about-description {
         font-size: 1.1rem;
         line-height: 1.8;
-        color: #666;
+        color: #cecece;
         margin-bottom: 40px;
     }
     
@@ -155,7 +155,7 @@
         text-align: center;
         padding: 20px;
         border-radius: 10px;
-        background: white;
+        background: linear-gradient(to top, #181136, #050524);
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         transition: transform 0.3s ease;
     }
@@ -173,12 +173,12 @@
     .feature-item h3 {
         font-size: 1.2rem;
         margin-bottom: 10px;
-        color: #2c3e50;
+        color: #868686;
     }
     
     .feature-item p {
         font-size: 0.9rem;
-        color: #666;
+        color: #dbd9d9;
         line-height: 1.6;
     }
     
