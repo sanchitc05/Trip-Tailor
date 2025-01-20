@@ -102,7 +102,7 @@
 
 <tr>
 	<td><strong>Cloud Infrastructure</strong></td>
-	<td><img height=40 src = "https://skillicons.dev/icons?i=aws,gcp"></td>
+	<td><img height=40 src = "https://skillicons.dev/icons?i=gcp"></td>
 </tr>
 </table>
 
