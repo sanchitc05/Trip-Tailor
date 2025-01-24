@@ -2,7 +2,7 @@
   
    # `Trip Tailor: Personalized Travel Planning ✈️🏝️` 
 
-  <i>Welcome to <b>Trip Tailor</b> – your go-to travel partner! 🌍✈️ Whether you're organizing a family getaway 👨‍👩‍👧‍👦 or an adventure with friends 👫, Trip Tailor makes it simple to uncover incredible destinations 🏖️🏰, secure top-notch accommodations 🏨, and book budget-friendly flights 💺 effortlessly.
+  <i>Welcome to <b>Trip Tailor</b> – your go-to travel partner! 🌍✈️ Whether you're organizing a family getaway 👨‍👩‍👧‍👦 or an adventure with friends 👫, Trip Tailor makes it simple to uncover incredible destinations 🏖️🏰, enjoy top-notch accommodations 🏨, and book budget-friendly flights 💺 effortlessly.
   </i>
 
 </div>
@@ -102,7 +102,7 @@
 
 <tr>
 	<td><strong>Cloud Infrastructure</strong></td>
-	<td><img height=40 src = "https://skillicons.dev/icons?i=aws,gcp"></td>
+	<td><img height=40 src = "https://skillicons.dev/icons?i=gcp"></td>
 </tr>
 </table>
 

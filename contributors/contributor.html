@@ -5,13 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contributors Page</title>
   <link rel="stylesheet" href="contributor.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
 
 <!-- Navbar -->
 <nav class="navbar">
-  <div class="navbar-logo">Trip Tailor</div>
+  <div class="navbar-logo"><img src="../logo-white.png" style="height:70px;width:112.4px;padding-top:2px;"></div>
   <div class="hamburger">
     <span></span>
     <span></span>
@@ -19,10 +21,12 @@
   </div>
   <ul class="navbar-links">
       <li><a href="../index.html" class="navbar-link">Home</a></li> 
+      <li><a href="../Frontend/aboutUs/aboutus.html" class="navbar-link">About Us</a></li> 
       <li><a href="../index.html#features" class="navbar-link">Features</a></li>
-      <li><a href="contributor.html" class="navbar-link">Contributors</a></li>
       <li><a href="../index.html#faq" class="navbar-link">FAQs</a></li>
-      <li><a href="../contact_us_page/contactus.html" class="navbar-link">Contact</a></li>  
+      <li><a href="contributor.html" class="navbar-link">Contributors</a></li>
+      <li><a href="../contact_us_page/contactus.html" class="navbar-link">Contact</a></li> 
+      <li><a href="../signin/sign-in.html" class="navbar-link">Sign In</a></li>   
   </ul>
 </nav>
  
@@ -31,10 +35,57 @@
     <div id="contributors" class="contributors-grid"></div>
   </div>
 
-  <!-- Footer -->
-<footer class="footer">
-  <p>&copy; 2025 Trip Tailor. All rights reserved.</p>
+
+   <!-- footer here -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>Trip Tailor</h3>
+      <p>Personalized travel planning made easy - explore destinations and create memories.</p>
+      <div class="social-links">
+          <a href="" target="_blank" aria-label="Facebook" style="color: #4267B2;"><i class="fab fa-facebook"></i></a>
+          <a href="" target="_blank" aria-label="Twitter" style="color: #1DA1F2;"><i class="fab fa-twitter"></i></a>
+          <a href="" target="_blank" aria-label="Instagram" style="color: #C13584;"><i class="fab fa-instagram"></i></a>
+          <a href="" target="_blank" aria-label="YouTube" style="color: #FF0000;"><i class="fab fa-youtube"></i></a>
+          <a href="" target="_blank" aria-label="Linkedin" style="color: #0077B5;"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+  </div>
+
+      <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+              <li><a href="../index.html#hero">Home</a></li>
+              <li><a href="../index.html#wisdom">About Us</a></li>
+              <li><a href="../index.html#content">Our Trips</a></li>
+              <li><a href="../contact_us_page/contactus.html">Contact</a></li>
+          </ul>
+      </div>
+
+      <div class="footer-section">
+          <h4>Travel Planner</h4>
+          <ul>
+              <!-- need to add respective page link -->
+              <li><a href="Trip_Recommendation_Page/Recommendation.html">Planner</a></li>
+              <li><a href="#hero">Duration</a></li>
+              <li><a href="#hero">Experiences</a></li>
+          </ul>
+      </div>
+
+      <div class="footer-section">
+          <h4 style="margin-bottom: 40px;">Contact Us</h4>
+          <ul class="contact-info" style="margin-top: -20px;">
+              <li><i class="fas fa-envelope"></i><a href="mailto:info@StandOutPlatform.edu"
+                      style="margin-left: -5px;">info@TripTailor.in</a></li>
+              <li><i class="fas fa-map-marker-alt"></i><span>India</span></li>
+          </ul>
+      </div>
+  </div>
+
+  <div class="footer-bottom">
+      <p> &copy;  2025 Trip Tailor. All rights reserved.</p>
+  </div>
 </footer>
+ 
 
   <script src="contributor.js"></script>
 </body>
