@@ -42,73 +42,116 @@ header a:active {
 
   /* Contact Section */
   .contact-section {
-    padding: 50px 20px;
-    text-align: center;
-  }
-  
-  .contact-section h1 {
-    font-size: 2.5rem;
-    color: #FFD369; /* Yellow color */
-    margin-bottom: 20px;
-  }
-  
-  .contact-section p {
-    font-size: 1.1rem;
-    margin-bottom: 30px;
-    color: #dcdcdc;
-  }
-  
-  /* Contact Form */
-  .contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-    background: #1B1B2F; /* Slightly lighter shade of #003366 */
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-  }
-  
-  .contact-form input,
-  .contact-form textarea {
-    width: 90%;
-    padding: 10px 15px;
-    margin: 15px 0;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-  }
-  
-  .contact-form input {
-    height: 45px;
-  }
-  
-  .contact-form textarea {
-    resize: none;
-    height: 100px;
-  }
-  
-  .contact-form button {
-    display: inline-block;
-    width: 90%;
-    padding: 15px 15px;
-    background-color: #FFD369; /* Yellow color */
-    color: #031527; /* Dark blue text */
-    border: none;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .contact-form button:hover {
-    background-color: #FFD369; /* Lighter yellow */
-    transform: scale(1.05);
-  }
-  
-  /* Animation */
-  .contact-form button:active {
-    transform: scale(0.95);
-  }
+            display: flex;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--background-color) 30%, #0e162b 70%);
+            padding: 50px 20px;
+        }
+
+        .contact-container {
+            display: flex;
+            width: 85%;
+            max-width: 1200px;
+            background: rgba(27, 27, 47, 0.8);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            overflow: hidden;
+        }
+
+        .contact-info {
+            flex: 1;
+            background: var(--secondary-color);
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-info h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            color: #dcdcdc;
+            margin-bottom: 30px;
+        }
+
+        .contact-social {
+            display: flex;
+            gap: 20px;
+        }
+
+        .contact-social a {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-social a:hover {
+            transform: scale(1.2);
+            color: #FFC107;
+        }
+
+        .contact-form {
+            flex: 1;
+            background: rgba(255,255,255,0.1);
+            padding: 50px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            background: rgba(42, 42, 72, 0.7);
+            border: none;
+            border-radius: 10px;
+            color: var(--text-color);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: 2px solid var(--primary-color);
+            background: rgba(42, 42, 72, 0.9);
+        }
+
+        .contact-form button {
+            padding: 15px;
+            background: linear-gradient(to right, var(--primary-color), #FFC107);
+            color: var(--secondary-color);
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(255,211,105,0.4);
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                flex-direction: column;
+                width: 95%;
+            }
+
+            .contact-info, .contact-form {
+                padding: 30px;
+            }
   
   /* Social Links */
   .social-links {
