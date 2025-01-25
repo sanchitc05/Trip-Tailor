@@ -1,6 +1,6 @@
 footer {
     color: #ffffff;
-    background: rgb(2, 13, 31);
+    background: linear-gradient(to right, #0e162b, #2a2a48, #0e162b);
     padding: 50px 0;
     width: 100%;
 }

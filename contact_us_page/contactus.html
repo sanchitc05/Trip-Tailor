@@ -33,21 +33,29 @@
 
 
   <!-- Contact Section -->
-  <section id="contact" class="contact-section">
-    <h1>Contact Us</h1>
-    <p>We'd love to hear from you! Fill out the form below or reach out through our social channels.</p>
+ <section class="contact-section">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h1>Contact Us</h1>
+                <p>We'd love to hear from you! Fill out the form or connect with us through our social channels.</p>
+                <div class="contact-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
     
     <!-- Contact Form -->
     <div class="contact-form">
-      <form action="https://api.web3forms.com/submit" method="POST">
-
-        <input type="hidden" name="access_key" value="6ff30671-25b4-41af-83e6-464bd72fe678">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-    </div>
+                <form action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="6ff30671-25b4-41af-83e6-464bd72fe678">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
     
    
   <!-- footer here -->
