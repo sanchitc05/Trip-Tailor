@@ -70,7 +70,7 @@
         padding: 120px 0;
         position: relative;
         overflow: hidden;
-        background-image: linear-gradient(to right, #0e162b, #2a2a48, #0e162b);
+        background: #0A101F;
     }
     
     .about-container {
