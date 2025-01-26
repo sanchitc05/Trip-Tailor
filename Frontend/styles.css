@@ -59,9 +59,9 @@ body {
 /* Hero Section */
 .hero {
     position: relative;
-    height: 100vh;
-    background: url(./Images/travel-home.jpg) center/cover no-repeat;
-    background-size: cover;
+    height: 85vh;
+    background: url(./Images/travel-home-improved.jpeg) center/cover no-repeat;
+    background-size:cover;
     display: flex;
     justify-content: center;
     align-items: center;
