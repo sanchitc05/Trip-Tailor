@@ -9,6 +9,14 @@
     <title>Trip Tailor</title>
 </head>
 <body>
+    <!-- Scroll -->
+    <div id="scrollButton" class="hidden">
+        <div class="outer-circle">
+            <div class="inner-circle">
+                <div class="arrow">↑</div>
+            </div>
+        </div>
+    </div>
 <!-- Navbar -->
 <nav class="navbar">
     <div class="navbar-logo">
@@ -20,12 +28,12 @@
         <span></span>
     </div>
     <ul class="navbar-links">
-        <li><a href="../index.html" class="navbar-link">Home</a></li> 
-        <li><a href="../Frontend/aboutUs/aboutus.html" class="navbar-link">About Us</a></li>
+        <li><a href="index.html" class="navbar-link">Home</a></li> 
+        <li><a href="Frontend/aboutUs/aboutus.html" class="navbar-link">About Us</a></li>
         <li><a href="#features" class="navbar-link">Features</a></li>
         <li><a href="#faq" class="navbar-link">FAQs</a></li>
         <li><a href="../contributors/contributor.html" class="navbar-link">Contributors</a></li>
-        <li><a href="../contact_us_page/contactus.html" class="navbar-link">Contact</a></li>  
+        <li><a href="./contact_us_page/contactus.html" class="navbar-link">Contact</a></li>  
         <li><a href="signin/sign-in.html" class="navbar-link">Sign In   <i class="fa-solid fa-arrow-right-to-bracket"></i></a></li>  
     </ul>
 </nav>
@@ -173,25 +181,32 @@
 </footer>
 
 <!-- Scroll to Top Button -->
-<button id="scrollToTopBtn" title="Go to top"><b>↑</b></button>
 <script>
-    const scrollToTopButton = document.getElementById('scrollToTopBtn');
-    const scrollFunc = () => {
-        let y = window.scrollY;
-        if (y > 100) { 
-            scrollToTopButton.className = "top-link show";
-        } else {
-            scrollToTopButton.className = "top-link hide";
-        }
-    };
-    window.addEventListener("scroll", scrollFunc);
-    const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
-    scrollToTopButton.onclick = function (e) {
-        e.preventDefault();
-        scrollToTop();
-    };
+   const scrollButton = document.getElementById('scrollButton');
+const outerCircle = document.querySelector('.outer-circle');
+const arrow = document.querySelector('.arrow');
+
+// Function to handle scroll behavior
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollProgress = (scrollTop / scrollHeight) * 360;
+
+    // Show button after scrolling 7-8 lines (~100px)
+    if (scrollTop > 100) {
+        scrollButton.classList.add('visible');
+    } else {
+        scrollButton.classList.remove('visible');
+    }
+
+    // Update the circular progress
+    outerCircle.style.setProperty('--scroll-progress', `${scrollProgress}deg`);
+});
+
+// Scroll-to-top functionality
+scrollButton.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
 </script>
 
 </body>
