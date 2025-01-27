@@ -127,7 +127,7 @@ function generateCertificate(username, avatarUrl) {
 
     // Signature and date
     ctx.font = "30px 'Playwrite VN', serif";
-    ctx.fillText("Priyesh Singh", canvas.width / 1.5, 850);
+    ctx.fillText("Sanchit Chauhan", canvas.width / 1.5, 850);
     ctx.strokeStyle = "#5a4637";
     ctx.lineWidth = 2;
     ctx.beginPath(); 
