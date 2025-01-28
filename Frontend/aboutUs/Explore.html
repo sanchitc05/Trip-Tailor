@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Our Services</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0e1a2b;
+            color: #fff;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-image: linear-gradient(to right, #0e162b, #2a2a48, #0e162b);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: 90px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+
+        .navbar-links {
+
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            margin-right: 20px;
+        }
+
+        .navbar-link {
+            text-decoration: none;
+            color: #fff;
+            font-size: 20px;
+            font-weight: 300;
+            transition: color 0.3s ease;
+
+        }
+
+        .navbar-link:hover {
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-link:hover {
+            color: #FFD369;
+        }
+
+
+        .header {
+            text-align: center;
+            padding: 30px 10px;
+            background: linear-gradient(to right, #1a2b48, #0e1a2b);
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            color: #ccc;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 40px 20px;
+        }
+
+        .service {
+            background-color: #1a2b48;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .service:hover {
+            transform: translateY(-10px);
+        }
+
+        .service img {
+            width: 100%;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .service h3 {
+            margin: 15px 0;
+            font-size: 1.5em;
+            color: #00ffcc;
+        }
+
+        .service p {
+            color: #ccc;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #1a2b48;
+            color: #ccc;
+        }
+
+        .footer a {
+            color: #00ffcc;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <a href="/index.html"><img src="/logo-white.png" style="height:70px;width:112.4px;padding-top:2px;"
+                    alt="Logo"></a>
+        </div>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="navbar-links">
+            <li><a href="/index.html" class="navbar-link">Home</a></li>
+            <li><a href="/Frontend/aboutUs/aboutus.html" class="navbar-link">About Us</a></li>
+            <li><a href="" class="navbar-link">Features</a></li>
+            <li><a href="" class="navbar-link">FAQs</a></li>
+            <li><a href="../contributors/contributor.html" class="navbar-link">Contributors</a></li>
+            <li><a href="/contact_us_page/contactus.html" class="navbar-link">Contact</a></li>
+            <li><a href="/signin/sign-in.html" class="navbar-link">Sign In <i
+                        class="fa-solid fa-arrow-right-to-bracket"></i></a></li>
+        </ul>
+    </nav>
+
+    <div class="header">
+        <h1>Explore Our Services</h1>
+        <p>Discover the best travel options tailored just for you.</p>
+    </div>
+
+    <div class="services">
+        <div class="service">
+            <img src="https://th.bing.com/th/id/OIP.MK1Z888NJwcDRbCTaRrk3QHaFj?rs=1&pid=ImgDetMain" height="200"
+                alt="Destination Planning">
+            <h3>Destination Planning</h3>
+            <p>Customized itineraries to make your travel dreams come true.</p>
+        </div>
+        <div class="service">
+            <img src="https://th.bing.com/th/id/OIP.rY0JW65EvwlUzOmo2PesLAHaGN?rs=1&pid=ImgDetMain" width="200"
+                height="200" alt="Global Bookings">
+            <h3>Global Bookings</h3>
+            <p>Seamless hotel and flight bookings across 150+ countries.</p>
+        </div>
+        <div class="service">
+            <img src="https://th.bing.com/th/id/OIP.ZZBWSAOR_VZOfspDHSJDBgHaE8?rs=1&pid=ImgDetMain" alt="Secure Travel">
+            <h3>Secure Travel</h3>
+            <p>24/7 customer support and comprehensive travel insurance.</p>
+        </div>
+        <div class="service">
+            <img src="https://th.bing.com/th/id/OIP.WvVewPR5FzFDcWA5AXUvMgHaE7?rs=1&pid=ImgDetMain"
+                alt="Exclusive Deals">
+            <h3>Exclusive Deals</h3>
+            <p>Access to exclusive travel packages and discounts.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 Trip Tailor. All rights reserved. | <a href="#">Privacy Policy</a></p>
+    </div>
+</body>
+
+</html>
