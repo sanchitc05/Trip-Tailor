@@ -74,6 +74,59 @@
     </div>
   </section>
 
+  <section class="reviews" id="reviews">
+    <h2>What Our Travelers Say</h2>
+    <div class="reviews-container">
+        <button class="review-nav prev-btn">&lt;</button>
+        
+        <div class="review-cards">
+            <div class="review-card active">
+                <div class="review-profile">
+                    <img src="./img/people.jpg" alt="Sarah Johnson">
+                    <div class="review-profile-info">
+                        <h3>Sarah Johnson</h3>
+                        <p>Mumbai, India</p>
+                    </div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"Trip Tailor made planning our family vacation to Rajasthan incredibly easy. The AI recommendations were spot-on and saved us hours of research!"</p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-profile">
+                    <img src="./img/user1.webp" alt="Rahul Mehta">
+                    <div class="review-profile-info">
+                        <h3>Rahul Mehta</h3>
+                        <p>Bangalore, India</p>
+                    </div>
+                </div>
+                <div class="review-stars">★★★★☆</div>
+                <p class="review-text">"Great experience using the expense calculator. It helped us budget our Kerala trip perfectly. The accommodation suggestions were excellent too."</p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-profile">
+                    <img src="./img/user2.webp" alt="Emily Chen">
+                    <div class="review-profile-info">
+                        <h3>Emily Chen</h3>
+                        <p>Delhi, India</p>
+                    </div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"The route comparison feature is fantastic! We discovered some hidden gems in Himachal Pradesh that we wouldn't have found otherwise."</p>
+            </div>
+        </div>
+
+        <button class="review-nav next-btn">&gt;</button>
+    </div>
+    <div class="review-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+</section>
+
+
 <section class="faq" id="faq">
     <h2>Frequently Asked Questions</h2>
     <div class="faq-item">
@@ -208,6 +261,49 @@ scrollButton.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 </script>
-
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const cards = document.querySelectorAll('.review-card');
+        const dots = document.querySelectorAll('.dot');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        let currentIndex = 0;
+    
+        function showCard(index) {
+            cards.forEach(card => {
+                card.classList.remove('active');
+            });
+            dots.forEach(dot => {
+                dot.classList.remove('active');
+            });
+            
+            cards[index].classList.add('active');
+            dots[index].classList.add('active');
+        }
+    
+        function nextCard() {
+            currentIndex = (currentIndex + 1) % cards.length;
+            showCard(currentIndex);
+        }
+    
+        function prevCard() {
+            currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+            showCard(currentIndex);
+        }
+    
+        prevBtn.addEventListener('click', prevCard);
+        nextBtn.addEventListener('click', nextCard);
+    
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentIndex = index;
+                showCard(currentIndex);
+            });
+        });
+    
+        // Auto-advance every 5 seconds
+        setInterval(nextCard, 5000);
+    });
+    </script>
 </body>
 </html>

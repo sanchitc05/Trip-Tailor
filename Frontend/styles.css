@@ -709,3 +709,156 @@ a {
     font-weight: bold;
     transform: rotate(90deg); /* Fixed direction to the right */
 }
+
+.reviews {
+  background-color: #0A101F;
+  padding: 40px 20px;
+  text-align: center;
+  margin: 40px auto;
+  color: #F5F5F7;
+}
+
+.reviews h2 {
+  font-size: 36px;
+  margin-bottom: 30px;
+  color: #FFCA47;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.reviews-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.review-cards {
+  position: relative;
+  width: 600px;
+  height: 300px;
+  overflow: hidden;
+}
+
+.review-card {
+  position: absolute;
+  width: 100%;
+  background-color: #2B2D3A;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.5s ease;
+}
+
+.review-card.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.review-profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.review-profile img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 15px;
+  object-fit: cover;
+}
+
+.review-profile-info h3 {
+  color: #FFD369;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.review-profile-info p {
+  color: #D9E2EC;
+  margin: 5px 0 0;
+  font-size: 0.9rem;
+}
+
+.review-stars {
+  color: #FFD369;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.review-text {
+  color: #D9E2EC;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.review-nav {
+  background-color: #2B2D3A;
+  color: #FFD369;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
+.review-nav:hover {
+  background-color: #354F66;
+}
+
+.review-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: #2B2D3A;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #FFD369;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .reviews-container {
+      flex-direction: column;
+  }
+
+  .review-cards {
+      width: 100%;
+      height: 350px;
+  }
+
+  .review-nav {
+      display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .review-cards {
+      height: 400px;
+  }
+
+  .review-profile {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .review-profile img {
+      margin: 0 0 10px 0;
+  }
+}
