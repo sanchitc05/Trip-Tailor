@@ -1,3 +1,4 @@
+
 document.getElementById('travel-form').addEventListener('submit', async function(event) {
   event.preventDefault();
 
@@ -22,17 +23,7 @@ document.getElementById('travel-form').addEventListener('submit', async function
       const data = await response.json();
       console.log('API Response:', data);
 
-      const recommendationText = data.recommendation || 'No recommendations available';
-      document.getElementById('recommendation-result').innerHTML = `
-        <div class="recommendation-card show">
-          <div class="card-header">
-            <i class="fas fa-map-marker-alt"></i>
-            <h3>Your Travel Recommendation</h3>
-          </div>
-          <p id="recommendation-text">${recommendationText}</p>
-          <button id="explore-btn">Explore More</button>
-        </div>
-      `;
+
     } else {
       document.getElementById('recommendation-text').textContent = 'Sorry, we could not fetch recommendations at this time.';
     }
@@ -47,4 +38,9 @@ document.getElementById('travel-form').addEventListener('submit', async function
     console.log('Error:', error);
     document.getElementById('recommendation-text').textContent = 'An error occurred while fetching recommendations.';
   }
+});
+
+document.querySelector('.hamburger').addEventListener('click', () => {
+  const navLinks = document.querySelector('.navbar-links');
+  navLinks.classList.toggle('show');
 });
