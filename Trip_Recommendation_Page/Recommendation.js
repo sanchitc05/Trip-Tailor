@@ -1,4 +1,4 @@
-API_KEY ='AIzaSyA0AmffS6q_m8Uv3EBiZqVp5b6PBZRUg3s'
+
 document.getElementById('travel-form').addEventListener('submit', async function(event) {
   event.preventDefault();
 
@@ -8,57 +8,35 @@ document.getElementById('travel-form').addEventListener('submit', async function
   const days = document.getElementById('days').value;
   const preferences = document.getElementById('preferences').value;
 
-  const requestData = {
-    contents: [{
-      parts: [{
-        text: `Suggest a travel destination based on the following preferences:\nLocation: ${currentLocation}\nBudget: ${budget} INR\nDays: ${days}\nPreferences: ${preferences}`
-      }]
-    }]
-  };
-
-  console.log('Request Data:', requestData);  // Log the data being sent to API
-
   try {
-    // Make the request to the Gemini API
-    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`, {
+    // Make request to the backend
+    const response = await fetch('http://localhost:5000/api/recommend', { // Change this URL if deploying
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(requestData)
+      body: JSON.stringify({ currentLocation, budget, days, preferences }),
     });
 
     // Handle response
     if (response.ok) {
       const data = await response.json();
-      console.log('API Response:', data);  // Log the API response
+      console.log('API Response:', data);
 
-      // Check if candidates array exists and has data
-      if (data.candidates && data.candidates.length > 0) {
-        // Extract the recommendation text from the response
-        const recommendationText = data.candidates[0].content.parts[0].text || 'No content available';
-        document.getElementById('recommendation-text').textContent = recommendationText;
-      } else {
-        document.getElementById('recommendation-text').textContent = 'No recommendations available at this time.';
-      }
+
     } else {
-      const errorData = await response.json();
-      console.log('Error Data:', errorData);  // Log error details
       document.getElementById('recommendation-text').textContent = 'Sorry, we could not fetch recommendations at this time.';
     }
-     // Scroll to the recommendation result section
-     document.getElementById('recommendation-result').scrollIntoView({
+    
+    // Scroll to the result section
+    document.getElementById('recommendation-result').scrollIntoView({
       behavior: 'smooth',
       block: 'start'
     });
+
   } catch (error) {
-    console.log('Error:', error);  // Log any network error
+    console.log('Error:', error);
     document.getElementById('recommendation-text').textContent = 'An error occurred while fetching recommendations.';
-   // Scroll to the recommendation result section in case of an error
-   document.getElementById('recommendation-result').scrollIntoView({
-    behavior: 'smooth',
-    block: 'start'
-  });
   }
 });
 
