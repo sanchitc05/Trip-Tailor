@@ -2,19 +2,109 @@
 @config "../../tailwind.config.js";
 @import "mapbox-gl/dist/mapbox-gl.css";
 
+@theme {
+  --color-brand-50: #eef4ff;
+  --color-brand-100: #e0e7ff;
+  --color-brand-200: #c7d2fe;
+  --color-brand-300: #a5b4fc;
+  --color-brand-400: #818cf8;
+  --color-brand-500: #5a67ff;
+  --color-brand-600: #4d57ef;
+  --color-brand-700: #4338ca;
+  --color-brand-800: #3730a3;
+  --color-brand-900: #1e1b4b;
+}
+
 :root {
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 body {
-  @apply bg-slate-50 text-slate-950 antialiased dark:bg-slate-950 dark:text-slate-100;
-  font-family: theme("fontFamily.sans");
+  @apply bg-slate-950 text-slate-100 antialiased;
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
 }
 
 .glass-panel {
-  @apply border border-slate-200 bg-white/80 backdrop-blur-xl dark:border-white/10 dark:bg-white/5;
+  @apply border border-white/10 bg-white/5 backdrop-blur-xl;
+}
+
+.glass-card {
+  @apply rounded-3xl border border-white/10 bg-slate-900/40 backdrop-blur-xl shadow-2xl;
+}
+
+.text-gradient {
+  @apply bg-gradient-to-br from-white via-white to-brand-300 bg-clip-text text-transparent;
+}
+
+.bg-gradient-mesh {
+  background: radial-gradient(at 0% 0%, rgba(90, 103, 255, 0.15) 0, transparent 50%),
+              radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.15) 0, transparent 50%),
+              radial-gradient(at 100% 100%, rgba(20, 184, 166, 0.15) 0, transparent 50%),
+              radial-gradient(at 0% 100%, rgba(90, 103, 255, 0.15) 0, transparent 50%);
 }
 
 .page-shell {
-  @apply mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8;
+  @apply mx-auto w-full max-w-7xl px-6 py-12 lg:px-8;
+}
+
+button, .btn {
+  @apply transition-all duration-300 active:scale-95;
+}
+
+@layer components {
+  .text-glow {
+    text-shadow: 0 0 20px rgba(90, 103, 255, 0.4);
+  }
+
+  .glow-border {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .glow-border::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      transparent 150deg,
+      rgba(90, 103, 255, 0.5) 180deg,
+      transparent 210deg,
+      transparent 360deg
+    );
+    animation: rotate-border 4s linear infinite;
+    z-index: -1;
+  }
+
+  .glow-border > div {
+    @apply h-full w-full bg-slate-900;
+  }
+}
+
+@keyframes rotate-border {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(1deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 8s ease-in-out infinite;
+  animation-delay: -2s;
+}
+
+.mask-fade-bottom {
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 }

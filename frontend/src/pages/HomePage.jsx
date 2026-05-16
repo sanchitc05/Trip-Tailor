@@ -1,14 +1,22 @@
 import { usePageTitle } from "@/hooks/usePageTitle";
+import HeroSection from "@/components/HeroSection";
+import FeaturesSection from "@/components/FeaturesSection";
+import HowItWorks from "@/components/HowItWorks";
+import DestinationsPreview from "@/components/DestinationsPreview";
+import ReviewsCarousel from "@/components/ReviewsCarousel";
+import FAQSection from "@/components/FAQSection";
 
 export default function HomePage() {
   usePageTitle("Home");
 
   return (
-    <div className="rounded-lg border border-slate-200 bg-white p-8 shadow-sm dark:border-white/10 dark:bg-white/5">
-      <h1 className="text-3xl font-semibold">Home Page</h1>
-      <p className="mt-3 text-slate-600 dark:text-slate-300">
-        React route stub for the legacy home page.
-      </p>
+    <div className="space-y-8 py-4 sm:space-y-12 sm:py-6">
+      <HeroSection />
+      <FeaturesSection />
+      <HowItWorks />
+      <DestinationsPreview />
+      <ReviewsCarousel />
+      <FAQSection />
     </div>
   );
 }

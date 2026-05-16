@@ -1,12 +1,12 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { authApi } from "@/api/auth";
+import { authService } from "@/services/authService";
 import { useAppStore } from "@/store/useAppStore";
 
 export function useCurrentUser() {
   const token = useAppStore((s) => s.auth.token);
   return useQuery({
     queryKey: ["auth", "me"],
-    queryFn: async () => (await authApi.me()).data,
+    queryFn: authService.me,
     enabled: Boolean(token),
   });
 }
@@ -14,7 +14,7 @@ export function useCurrentUser() {
 export function useSignIn() {
   const login = useAppStore((s) => s.login);
   return useMutation({
-    mutationFn: async (payload) => (await authApi.signIn(payload)).data,
+    mutationFn: authService.signIn,
     onSuccess: (data) => {
       login({ user: data.user, token: data.accessToken });
     },
@@ -23,12 +23,12 @@ export function useSignIn() {
 
 export function useSignUp() {
   return useMutation({
-    mutationFn: async (payload) => (await authApi.signUp(payload)).data,
+    mutationFn: authService.signUp,
   });
 }
 
 export function useForgotPassword() {
   return useMutation({
-    mutationFn: async (payload) => (await authApi.forgotPassword(payload)).data,
+    mutationFn: authService.forgotPassword,
   });
 }
