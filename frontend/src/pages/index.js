@@ -1,3 +1,10 @@
+export { default as HomePage } from "@/pages/HomePage";
+export { default as PlannerPage } from "@/pages/PlannerPage";
+export { default as ExpensePage } from "@/pages/ExpensePage";
+export { default as DestinationsPage } from "@/pages/DestinationsPage";
+export { default as SignInPage } from "@/pages/SignInPage";
+export { default as AboutPage } from "@/pages/AboutPage";
+export { default as ContributorsPage } from "@/pages/ContributorsPage";
 export { default as LandingPage } from "@/pages/LandingPage";
 export { default as AuthPage } from "@/pages/AuthPage";
 export { default as DashboardPage } from "@/pages/DashboardPage";

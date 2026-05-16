@@ -1,10 +1,10 @@
 export const mainNavigation = [
-  { label: "Dashboard", path: "/dashboard" },
-  { label: "Trip Planner", path: "/trip-planner" },
-  { label: "Route Compare", path: "/route-comparison" },
-  { label: "Expenses", path: "/expense-calculator" },
-  { label: "Accommodations", path: "/accommodations" },
-  { label: "Recommendations", path: "/recommendations" },
-  { label: "Map", path: "/map" },
-  { label: "Profile", path: "/profile" },
+  { label: "Home", path: "/" },
+  { label: "Planner", path: "/plan" },
+  { label: "Expenses", path: "/expenses" },
+  { label: "Destinations", path: "/destinations" },
+  { label: "About", path: "/about" },
+  { label: "Contributors", path: "/contributors" },
+  { label: "Contact", path: "/contact" },
+  { label: "Sign In", path: "/signin" },
 ];

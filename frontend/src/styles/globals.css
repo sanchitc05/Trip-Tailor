@@ -1,24 +1,18 @@
 @import "tailwindcss";
+@config "../../tailwind.config.js";
 @import "mapbox-gl/dist/mapbox-gl.css";
 
 :root {
-  color-scheme: dark;
-}
-
-@theme {
-  --color-brand-50: #eef4ff;
-  --color-brand-500: #5a67ff;
-  --color-brand-600: #4d57ef;
-  --color-brand-900: #151a3a;
+  color-scheme: light;
 }
 
 body {
-  @apply bg-slate-950 text-slate-100 antialiased;
-  font-family: Inter, "Segoe UI", Roboto, sans-serif;
+  @apply bg-slate-50 text-slate-950 antialiased dark:bg-slate-950 dark:text-slate-100;
+  font-family: theme("fontFamily.sans");
 }
 
 .glass-panel {
-  @apply border border-white/10 bg-white/5 backdrop-blur-xl;
+  @apply border border-slate-200 bg-white/80 backdrop-blur-xl dark:border-white/10 dark:bg-white/5;
 }
 
 .page-shell {
