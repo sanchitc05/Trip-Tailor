@@ -1,121 +1,67 @@
-# Trip Tailor Frontend (React + Vite)
+# Trip Tailor
 
-Trip Tailor frontend has been redesigned into a modern, scalable React architecture with premium UI foundations for AI-first travel planning workflows.
+Trip Tailor is organized as a monorepo with a React + Vite frontend, a FastAPI backend, and archived legacy HTML/CSS/JS pages for migration reference.
 
-## Stack
-
-- React 18 + Vite
-- Tailwind CSS v4
-- React Router DOM
-- Framer Motion
-- Axios (with interceptors)
-- Zustand for global state
-- TanStack Query
-- Radix UI primitives
-- Recharts for analytics visualizations
-
-## Frontend Architecture
+## Repository Layout
 
 ```text
-src/
-├── animations/
-├── api/
-├── assets/
-├── components/
-├── constants/
-├── context/
-├── hooks/
-├── layouts/
-├── pages/
-├── routes/
-├── services/
-├── store/
-├── styles/
-└── utils/
+Trip-Tailor/
+|-- .github/workflows/  GitHub Actions workflows
+|-- frontend/           React + Vite app
+|-- backend/            FastAPI app
+|-- legacy/             Original HTML/CSS/JS pages for reference
+|-- contributors/       Contributor recognition page
+|-- .gitignore
+|-- README.md
+|-- LICENSE
+`-- Code of Conduct.md
 ```
 
-## Implemented Pages
+## Frontend
 
-- Landing page
-- Authentication (Sign In / Sign Up / Forgot Password)
-- Dashboard
-- Trip Planner
-- Route Comparison
-- Expense Calculator
-- Accommodation Finder
-- Recommendation System
-- Interactive Map
-- User Profile
-- Contact Page
-- Error/empty/loading states
+The frontend lives in `frontend/`.
 
-## Setup
+```bash
+cd frontend
+npm install
+copy .env.example .env
+npm run dev
+```
 
-1. Install dependencies:
-   ```bash
-   npm install
-   ```
-2. Configure env:
-   ```bash
-   cp .env.example .env
-   ```
-3. Run development server:
-   ```bash
-   npm run dev
-   ```
-4. Build production bundle:
-   ```bash
-   npm run build
-   ```
+Key paths:
 
-## Environment Variables
+- `frontend/src/components/` shared React components
+- `frontend/src/components/ui/` reusable UI primitives
+- `frontend/src/pages/` route-level pages
+- `frontend/src/hooks/` custom React hooks
+- `frontend/src/store/` Zustand state slices
+- `frontend/src/services/` Axios and backend API clients
+- `frontend/public/` static public assets, including logos
 
-Use `.env` with:
+## Backend
 
-- `VITE_API_BASE_URL`
-- `VITE_MAP_PROVIDER`
-- `VITE_MAPBOX_TOKEN`
-- `VITE_GOOGLE_MAPS_API_KEY`
+The backend lives in `backend/`.
 
-## API Layer
+```bash
+cd backend
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+copy .env.example .env
+uvicorn app.main:app --reload
+```
 
-- `src/services/http.js`: central Axios instance + auth/error interceptors
-- `src/api/`: domain API modules for auth, trips, recommendations, and planner actions
+Key paths:
 
-## State Layer
+- `backend/app/main.py` FastAPI app entry point
+- `backend/app/config.py` settings and environment loading
+- `backend/app/routers/` route modules
+- `backend/app/models/` Pydantic request/response models
+- `backend/app/services/` business logic and external API calls
+- `backend/app/utils/` shared backend helpers
 
-- `src/store/useAppStore.js`: auth, trip, preferences, recommendation, and UI state
+The API exposes `GET /health` for a basic health check.
 
-## Production Hardening (Phase 2)
+## Legacy Archive
 
-- Protected application routes via `src/routes/ProtectedRoute.jsx`
-- Form validation and schema-driven auth forms using React Hook Form + Zod
-- Auth hooks with TanStack Query in `src/hooks/useAuth.js`
-- Mapbox scaffolding with env-driven provider/token in `src/components/map/MapWrapper.jsx`
-- Vitest + Testing Library setup under `src/tests/`
-
-## Data Integration (Phase 3)
-
-- Route-level page splitting (`src/pages/*.jsx`) for cleaner code splitting
-- Query hooks in `src/hooks/useTravelData.js` for:
-  - upcoming trips
-  - route comparison
-  - recommendations
-  - hotels
-  - expense breakdown
-  - itinerary generation mutation
-- API-first with safe fallback mock data in `src/constants/mockData.js` for local/dev resilience
-
-## Reliability Layer (Phase 4)
-
-- Runtime API contract validation with Zod in `src/utils/apiSchemas.js`
-- Global error boundary in `src/components/errors/AppErrorBoundary.jsx`
-- Global async error toast pipeline via `src/context/ToastContext.jsx` + Query/Muation cache error hooks
-- Optimistic recommendation save/unsave mutation in `useToggleRecommendationSave`
-
-## Next Engineering Steps
-
-- Connect each page to live Django/FastAPI endpoints
-- Add robust form schemas using React Hook Form + Zod
-- Add map provider SDK (Mapbox or Google Maps) into `MapWrapper`
-- Introduce test suite (Vitest + React Testing Library + Playwright)
+The `legacy/` folder contains the original HTML/CSS/JS pages before the React + Vite migration. Treat it as reference material only; new features should go into `frontend/` and `backend/`.

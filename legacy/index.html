@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Frontend/styles.css">
+    <link rel="stylesheet" href="./Frontend/footer.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Trip Tailor</title>
+</head>
+<body>
+    <!-- Scroll -->
+    <div id="scrollButton" class="hidden">
+        <div class="outer-circle">
+            <div class="inner-circle">
+                <div class="arrow">↑</div>
+            </div>
+        </div>
+    </div>
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="navbar-logo">
+        <a href="index.html"><img src="logo-white.png" style="height:70px;width:112.4px;padding-top:2px;" alt="Logo"></a>
+    </div>
+    <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <ul class="navbar-links">
+        <li><a href="index.html" class="navbar-link">Home</a></li> 
+        <li><a href="Frontend/aboutUs/aboutus.html" class="navbar-link">About Us</a></li>
+        <li><a href="#features" class="navbar-link">Features</a></li>
+        <li><a href="#faq" class="navbar-link">FAQs</a></li>
+        <li><a href="../contributors/contributor.html" class="navbar-link">Contributors</a></li>
+        <li><a href="./contact_us_page/contactus.html" class="navbar-link">Contact</a></li>  
+        <li><a href="signin/sign-in.html" class="navbar-link">Sign In   <i class="fa-solid fa-arrow-right-to-bracket"></i></a></li>  
+    </ul>
+    <button id="theme-switch">
+        <svg id="theme-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#EFEFEF">
+            <!-- Light mode icon -->
+            <path id="light-icon" d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Z"/>
+            <!-- Dark mode icon -->
+            <path id="dark-icon" d="M480-280q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Z"/>
+        </svg>
+    </button>
+</nav>
+
+<!-- Hero Section -->
+<section id="hero" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>Your Journey Starts Here</h1>
+        <p class="hero-subtext"><b>Find the best travel options tailored for you</b></p>
+        <a href="Trip_Recommendation_Page/Recommendation.html" class="cta-button">Start Planning with AI</a>
+
+    </div>
+</section>
+
+<section class="features" id="features">
+    <div class="feature-card">
+      <div class="feature-icon">🗺️</div>
+      <div class="feature-title">Route Comparison</div>
+      <p class="feature-description">Compare travel routes to choose the best path. Make informed decisions about your journey with our comprehensive route analysis.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📊</div>
+      <div class="feature-title">Expense Calculator</div>
+      <p class="feature-description">Estimate and compare travel costs to budget smarter. Plan your expenses effectively with our detailed cost breakdown.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🏨</div>
+      <div class="feature-title">Accommodation Finder</div>
+      <p class="feature-description">Find stays that fit your preferences and budget. Browse through curated options tailored to your needs.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">✈️</div>
+      <a href="index2.html">
+        <div class="feature-title">Popular Indian Destinations</div>
+      </a>
+      <p class="feature-description">Take a look at the beautiful destinations that are trending. Discover India's most sought-after travel spots.</p>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews">
+    <h2>What Our Travelers Say</h2>
+    <div class="reviews-container">
+        <button class="review-nav prev-btn">&lt;</button>
+        
+        <div class="review-cards">
+            <div class="review-card active">
+                <div class="review-profile">
+                    <img src="./img/people.jpg" alt="Sarah Johnson">
+                    <div class="review-profile-info">
+                        <h3>Sarah Johnson</h3>
+                        <p>Mumbai, India</p>
+                    </div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"Trip Tailor made planning our family vacation to Rajasthan incredibly easy. The AI recommendations were spot-on and saved us hours of research!"</p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-profile">
+                    <img src="./img/user1.webp" alt="Rahul Mehta">
+                    <div class="review-profile-info">
+                        <h3>Rahul Mehta</h3>
+                        <p>Bangalore, India</p>
+                    </div>
+                </div>
+                <div class="review-stars">★★★★☆</div>
+                <p class="review-text">"Great experience using the expense calculator. It helped us budget our Kerala trip perfectly. The accommodation suggestions were excellent too."</p>
+            </div>
+
+            <div class="review-card">
+                <div class="review-profile">
+                    <img src="./img/user2.webp" alt="Emily Chen">
+                    <div class="review-profile-info">
+                        <h3>Emily Chen</h3>
+                        <p>Delhi, India</p>
+                    </div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"The route comparison feature is fantastic! We discovered some hidden gems in Himachal Pradesh that we wouldn't have found otherwise."</p>
+            </div>
+        </div>
+
+        <button class="review-nav next-btn">&gt;</button>
+    </div>
+    <div class="review-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+</section>
+
+
+<section class="faq" id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+        <div class="faq-question">
+            How does Trip Tailor work?
+            <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+            We provide personalized travel options, comparing routes, expenses, and accommodations tailored to your preferences.
+        </div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question">
+            Is it free to use?
+            <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+            Yes, our basic features are completely free. We also offer premium plans for advanced options.
+        </div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question">
+            Can I customize my travel preferences?
+            <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+            Absolutely! You can customize your travel preferences to receive tailored suggestions that best match your needs.
+        </div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question">
+            What support options are available?
+            <span class="faq-icon">+</span>
+        </div>
+        <div class="faq-answer">
+            We offer 24/7 customer support through chat, email, and phone for all your travel inquiries.
+        </div>
+    </div>
+</section>
+
+
+<script>
+    document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+            const faqItem = question.parentElement;
+            faqItem.classList.toggle('open');
+        });
+    });
+
+
+    document.querySelector('.hamburger').addEventListener('click', () => {
+    const navLinks = document.querySelector('.navbar-links');
+    navLinks.classList.toggle('show');
+});
+</script>
+<script> window.chtlConfig = { chatbotId: "5766754121" } </script>
+<script async data-id="5766754121" id="chatling-embed-script" type="text/javascript" src="https://chatling.ai/js/embed.js"></script>
+<!-- footer here -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Trip Tailor</h3>
+            <p>Personalized travel planning made easy - explore destinations and create memories.</p>
+            <div class="social-links">
+                <a href="" target="_blank" aria-label="Facebook" style="color: #4267B2;"><i class="fab fa-facebook"></i></a>
+                <a href="" target="_blank" aria-label="Twitter" style="color: #1DA1F2;"><i class="fab fa-twitter"></i></a>
+                <a href="" target="_blank" aria-label="Instagram" style="color: #C13584;"><i class="fab fa-instagram"></i></a>
+                <a href="" target="_blank" aria-label="YouTube" style="color: #FF0000;"><i class="fab fa-youtube"></i></a>
+                <a href="" target="_blank" aria-label="Linkedin" style="color: #0077B5;"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="../Frontend/aboutUs/aboutus.html">About Us</a></li>
+                <li><a href="#content">Our Trips</a></li>
+                <li><a href="../contact_us_page/contactus.html">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Travel Planner</h4>
+            <ul>
+                <li><a href="Trip_Recommendation_Page/Recommendation.html">Planner</a></li>
+                <li><a href="#hero">Duration</a></li>
+                <li><a href="#hero">Experiences</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4 style="margin-bottom: 40px;">Contact Us</h4>
+            <ul class="contact-info" style="margin-top: -20px;">
+                <li><i class="fas fa-envelope"></i><a href="mailto:info@StandOutPlatform.edu"
+                        style="margin-left: -5px;">info@triptailor.in</a></li>
+                <li><i class="fas fa-map-marker-alt"></i><span>India</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p> &copy; 2025 Trip Tailor, All Right Reserved</p>
+    </div>
+</footer>
+
+<!-- Scroll to Top Button -->
+<script>
+   const scrollButton = document.getElementById('scrollButton');
+const outerCircle = document.querySelector('.outer-circle');
+const arrow = document.querySelector('.arrow');
+
+// Function to handle scroll behavior
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollProgress = (scrollTop / scrollHeight) * 360;
+
+    // Show button after scrolling 7-8 lines (~100px)
+    if (scrollTop > 100) {
+        scrollButton.classList.add('visible');
+    } else {
+        scrollButton.classList.remove('visible');
+    }
+
+    // Update the circular progress
+    outerCircle.style.setProperty('--scroll-progress', `${scrollProgress}deg`);
+});
+
+// Scroll-to-top functionality
+scrollButton.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const cards = document.querySelectorAll('.review-card');
+        const dots = document.querySelectorAll('.dot');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        let currentIndex = 0;
+    
+        function showCard(index) {
+            cards.forEach(card => {
+                card.classList.remove('active');
+            });
+            dots.forEach(dot => {
+                dot.classList.remove('active');
+            });
+            
+            cards[index].classList.add('active');
+            dots[index].classList.add('active');
+        }
+    
+        function nextCard() {
+            currentIndex = (currentIndex + 1) % cards.length;
+            showCard(currentIndex);
+        }
+    
+        function prevCard() {
+            currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+            showCard(currentIndex);
+        }
+    
+        prevBtn.addEventListener('click', prevCard);
+        nextBtn.addEventListener('click', nextCard);
+    
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentIndex = index;
+                showCard(currentIndex);
+            });
+        });
+    
+        // Auto-advance every 5 seconds
+        setInterval(nextCard, 5000);
+    });
+    </script>
+    <style>
+        :root {
+    --background-color-light: #ffffff;
+    --background-color-dark: #121212;
+    --text-color-light: #000000;
+    --text-color-dark: #ffffff;
+    --primary-color-light: #4f0dc2;
+    --primary-color-dark: #d1830e;
+    }
+    
+    body {
+    background-color: var(--background-color-light);
+    color: var(--text-color-light);
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+    }
+    
+    body.darkmode {
+    background-color: var(--background-color-dark);
+    color: var(--text-color-dark);
+    }
+    
+    #theme-switch {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    
+    background: none;
+    border: 10px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 90%;
+    transition: background-color 0.3s;
+    margin-right: 750px;
+    margin-top: -10px;
+    
+    }
+    
+    #theme-switch:hover {
+    background-color: rgba(108, 177, 11, 0.1);
+    transform: scale(1);
+    }
+    
+    #theme-icon {
+    fill: var(--primary-color-light);
+    transition: fill 0.3s;
+    width: 50px;
+    height: 60px;
+    }
+    
+    body.darkmode #theme-icon {
+    fill: var(--primary-color-dark);
+    }
+    
+    #theme-icon #dark-icon {
+    display: none;
+    }
+    
+    body.darkmode #theme-icon #light-icon {
+    display: none;
+    }
+    
+    body.darkmode #theme-icon #dark-icon {
+    display: block;
+    }
+    </style>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const themeSwitch = document.getElementById('theme-switch');
+    const darkmode = localStorage.getItem('darkmode');
+    
+    // Apply dark mode if the user has previously selected it
+    if (darkmode === 'active') {
+        document.body.classList.add('darkmode');
+    }
+    
+    // Toggle dark mode on button click
+    themeSwitch.addEventListener('click', () => {
+        document.body.classList.toggle('darkmode');
+        const isDarkMode = document.body.classList.contains('darkmode');
+        localStorage.setItem('darkmode', isDarkMode ? 'active' : 'inactive');
+    });
+    });
+    </script>
+</body>
+</html>
