@@ -20,13 +20,15 @@ An AI-powered trip planning web app that generates personalized itineraries, map
 
 ## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| **Frontend** | React 18, Vite, Tailwind CSS, Zustand, React Query, React Router, Mapbox GL, Recharts |
-| **Backend** | FastAPI, Pydantic, Google Gemini AI, python-jose (JWT), passlib |
-| **Testing** | Vitest + Testing Library (frontend), pytest + httpx (backend) |
-| **CI/CD** | GitHub Actions (lint + test on every PR) |
-| **Deployment** | Vercel (frontend), Railway / Render (backend) |
+| Layer      | Technology                              |
+|------------|-----------------------------------------|
+| Frontend   | React 18, Vite, React Router, Zustand   |
+| Backend    | FastAPI, Uvicorn, Pydantic              |
+| Styling    | CSS Modules / Tailwind CSS              |
+| Maps       | Mapbox GL JS                            |
+| AI         | Google Gemini API                       |
+| Database   | PostgreSQL / MongoDB                    |
+| CI/CD      | GitHub Actions, Vercel                  |
 
 ---
 
@@ -103,33 +105,25 @@ Trip-Tailor/
 
 ## Getting Started
 
-### Prerequisites
-
-- **Node.js** ≥ 18 and **npm**
-- **Python** ≥ 3.10
-- API keys for **Google Gemini** and **Mapbox**
-
 ### Frontend
 
 ```bash
 cd frontend
 npm install
-copy .env.example .env          # fill in VITE_API_BASE_URL and VITE_MAPBOX_TOKEN
-npm run dev                     # → http://localhost:5173
+npm run dev        # runs on http://localhost:5173
 ```
 
 ### Backend
 
 ```bash
 cd backend
-python -m venv .venv
-.venv\Scripts\activate          # Windows
+python -m venv venv
+venv\Scripts\activate     # Windows
+source venv/bin/activate  # Mac/Linux
 pip install -r requirements.txt
-copy .env.example .env          # fill in GOOGLE_API_KEY
-uvicorn app.main:app --reload   # → http://localhost:8000
+cp .env.example .env      # fill in your keys
+uvicorn app.main:app --reload  # runs on http://localhost:8000
 ```
-
-Verify both servers are running, then open [http://localhost:5173](http://localhost:5173).
 
 ---
 
