@@ -184,8 +184,14 @@ export default function PlannerPage() {
               {currentStep === 1 && (
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
-                    <label className="mb-2 block text-xs font-semibold uppercase text-slate-300">Start Date</label>
+                    <label
+                      htmlFor="planner-start-date"
+                      className="mb-2 block text-xs font-semibold uppercase text-slate-300"
+                    >
+                      Start Date
+                    </label>
                     <Input
+                      id="planner-start-date"
                       required
                       type="date"
                       value={form.start_date}
@@ -193,8 +199,14 @@ export default function PlannerPage() {
                     />
                   </div>
                   <div>
-                    <label className="mb-2 block text-xs font-semibold uppercase text-slate-300">End Date</label>
+                    <label
+                      htmlFor="planner-end-date"
+                      className="mb-2 block text-xs font-semibold uppercase text-slate-300"
+                    >
+                      End Date
+                    </label>
                     <Input
+                      id="planner-end-date"
                       required
                       type="date"
                       min={form.start_date || undefined}
@@ -231,8 +243,14 @@ export default function PlannerPage() {
                 <div className="space-y-4">
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div>
-                      <label className="mb-2 block text-xs font-semibold uppercase text-slate-300">Travel Style</label>
+                      <label
+                        htmlFor="planner-travel-style"
+                        className="mb-2 block text-xs font-semibold uppercase text-slate-300"
+                      >
+                        Travel Style
+                      </label>
                       <select
+                        id="planner-travel-style"
                         required
                         value={form.travel_style}
                         onChange={updateField("travel_style")}
