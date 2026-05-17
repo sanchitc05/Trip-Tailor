@@ -1,7 +1,11 @@
 fastapi
 uvicorn[standard]
 pydantic
+pydantic-settings
 python-dotenv
+python-jose[cryptography]
+passlib[bcrypt]
+python-multipart
 google-generativeai>=0.8.2
 pandas
 httpx
