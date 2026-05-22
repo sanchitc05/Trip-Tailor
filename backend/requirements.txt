@@ -10,3 +10,7 @@ google-generativeai>=0.8.2
 pandas
 httpx
 pytest
+sqlalchemy
+asyncpg
+alembic
+psycopg2-binary

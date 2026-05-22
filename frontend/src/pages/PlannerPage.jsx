@@ -9,6 +9,7 @@ import {
   Loader,
   MapPinned,
   Sparkles,
+  Save,
 } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
@@ -16,27 +17,19 @@ import Input from "@/components/ui/Input";
 import TripMap from "@/components/TripMap";
 import { usePageTitle } from "@/hooks/usePageTitle";
 import { tripService } from "@/services/tripService";
-import {
-  ResponsiveContainer,
-  PieChart,
-  Pie,
-  Cell,
-  Tooltip,
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Legend,
-} from "recharts";
-import heroImage from "@/assets/hero-bg.png";
+import { useCreateTrip } from "@/hooks/useTrips";
+import { toast } from "react-hot-toast";
 
+const TRAVEL_MODES = ["car", "bus", "train", "flight"];
 const TRAVEL_STYLES = ["adventure", "relaxation", "cultural", "luxury"];
 const COLORS = ["#3b82f6", "#ef4444", "#f59e0b", "#8b5cf6", "#ec4899"];
-const STEPS = ["Destination", "Travel Dates", "Budget", "Preferences", "Review"];
+const STEPS = ["Destination", "Origin & Mode", "Travel Dates", "Budget", "Preferences", "Review"];
 
 const emptyState = {
   destination: "",
+  origin: "",
+  travel_mode: "flight",
+  status: "planned",
   start_date: "",
   end_date: "",
   budget: "",
@@ -53,6 +46,8 @@ export default function PlannerPage() {
   const [currentStep, setCurrentStep] = useState(0);
   const [form, setForm] = useState(emptyState);
 
+  const createTripMutation = useCreateTrip();
+
   const updateField = (field) => (event) => {
     setForm((current) => ({ ...current, [field]: event.target.value }));
   };
@@ -62,10 +57,12 @@ export default function PlannerPage() {
       case 0:
         return Boolean(form.destination.trim());
       case 1:
-        return Boolean(form.start_date && form.end_date && form.start_date <= form.end_date);
+        return Boolean(form.origin.trim() && form.travel_mode);
       case 2:
-        return Boolean(Number(form.budget) > 0 && Number(form.duration) > 0 && Number(form.group_size) > 0);
+        return Boolean(form.start_date && form.end_date && form.start_date <= form.end_date);
       case 3:
+        return Boolean(Number(form.budget) > 0 && Number(form.duration) > 0 && Number(form.group_size) > 0);
+      case 4:
         return Boolean(form.travel_style);
       default:
         return true;
@@ -90,6 +87,24 @@ export default function PlannerPage() {
       }, 300);
     },
   });
+
+  const handleSaveTrip = async () => {
+    try {
+      await createTripMutation.mutateAsync({
+        title: `Trip to ${form.destination}`,
+        origin: form.origin,
+        destination: form.destination,
+        travel_mode: form.travel_mode,
+        status: form.status,
+        start_date: form.start_date,
+        end_date: form.end_date,
+        notes: `Budget: ${form.budget}, Style: ${form.travel_style}, Group: ${form.group_size}`,
+      });
+      toast.success("Trip saved successfully!");
+    } catch (error) {
+      toast.error("Failed to save trip.");
+    }
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -185,6 +200,47 @@ export default function PlannerPage() {
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
                     <label
+                      htmlFor="planner-origin"
+                      className="mb-2 block text-xs font-semibold uppercase text-slate-300"
+                    >
+                      Starting Point
+                    </label>
+                    <Input
+                      id="planner-origin"
+                      required
+                      placeholder="e.g. Mumbai"
+                      value={form.origin}
+                      onChange={updateField("origin")}
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="planner-travel-mode"
+                      className="mb-2 block text-xs font-semibold uppercase text-slate-300"
+                    >
+                      Preferred Mode
+                    </label>
+                    <select
+                      id="planner-travel-mode"
+                      required
+                      value={form.travel_mode}
+                      onChange={updateField("travel_mode")}
+                      className="w-full rounded-xl border border-white/10 bg-slate-900/70 p-3 text-sm text-white outline-none transition focus:ring-2 focus:ring-brand-500"
+                    >
+                      {TRAVEL_MODES.map((mode) => (
+                        <option key={mode} value={mode} className="bg-slate-900">
+                          {mode.charAt(0).toUpperCase() + mode.slice(1)}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+              )}
+
+              {currentStep === 2 && (
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <div>
+                    <label
                       htmlFor="planner-start-date"
                       className="mb-2 block text-xs font-semibold uppercase text-slate-300"
                     >
@@ -217,7 +273,7 @@ export default function PlannerPage() {
                 </div>
               )}
 
-              {currentStep === 2 && (
+              {currentStep === 3 && (
                 <div className="grid gap-4 sm:grid-cols-2">
                   <Input
                     required
@@ -239,7 +295,7 @@ export default function PlannerPage() {
                 </div>
               )}
 
-              {currentStep === 3 && (
+              {currentStep === 4 && (
                 <div className="space-y-4">
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div>
@@ -282,7 +338,7 @@ export default function PlannerPage() {
                 </div>
               )}
 
-              {currentStep === 4 && (
+              {currentStep === 5 && (
                 <div className="space-y-4 rounded-2xl border border-white/10 bg-slate-950/50 p-4 text-sm text-slate-200">
                   <div className="flex items-center gap-2 text-brand-200">
                     <CalendarDays size={16} />
@@ -292,6 +348,10 @@ export default function PlannerPage() {
                     <div className="rounded-xl bg-white/5 p-3">
                       <p className="text-xs uppercase tracking-[0.16em] text-slate-400">Destination</p>
                       <p className="mt-1 font-semibold">{form.destination || "Not set"}</p>
+                    </div>
+                    <div className="rounded-xl bg-white/5 p-3">
+                      <p className="text-xs uppercase tracking-[0.16em] text-slate-400">Origin</p>
+                      <p className="mt-1 font-semibold">{form.origin || "Not set"}</p>
                     </div>
                     <div className="rounded-xl bg-white/5 p-3">
                       <p className="text-xs uppercase tracking-[0.16em] text-slate-400">Travel Dates</p>
@@ -304,8 +364,16 @@ export default function PlannerPage() {
                       <p className="mt-1 font-semibold">₹{Number(form.budget || 0).toLocaleString()}</p>
                     </div>
                     <div className="rounded-xl bg-white/5 p-3">
-                      <p className="text-xs uppercase tracking-[0.16em] text-slate-400">Duration</p>
-                      <p className="mt-1 font-semibold">{form.duration || "0"} days</p>
+                      <p className="text-xs uppercase tracking-[0.16em] text-slate-400">Initial Status</p>
+                      <select
+                        value={form.status}
+                        onChange={updateField("status")}
+                        className="mt-1 w-full bg-transparent font-semibold outline-none"
+                      >
+                        <option value="planned" className="bg-slate-900">Planned</option>
+                        <option value="ongoing" className="bg-slate-900">Ongoing</option>
+                        <option value="completed" className="bg-slate-900">Completed</option>
+                      </select>
                     </div>
                   </div>
                 </div>
@@ -368,11 +436,23 @@ export default function PlannerPage() {
                   {data.duration} days • Travel style: {form.travel_style} • Group: {form.group_size} people
                 </p>
               </div>
-              <div className="rounded-2xl bg-brand-500/15 px-4 py-2 text-right">
-                <p className="text-xs font-semibold uppercase text-slate-400">Total Budget</p>
-                <p className="text-2xl font-bold text-brand-200">
-                  ₹{(data.estimated_cost ?? costBreakdown.total).toLocaleString()}
-                </p>
+              <div className="flex flex-col items-end gap-3">
+                <div className="rounded-2xl bg-brand-500/15 px-4 py-2 text-right">
+                  <p className="text-xs font-semibold uppercase text-slate-400">Total Budget</p>
+                  <p className="text-2xl font-bold text-brand-200">
+                    ₹{(data.estimated_cost ?? costBreakdown.total).toLocaleString()}
+                  </p>
+                </div>
+                <Button 
+                  onClick={handleSaveTrip} 
+                  disabled={createTripMutation.isPending}
+                  className="gap-2"
+                  variant="secondary"
+                  size="sm"
+                >
+                  <Save size={16} />
+                  {createTripMutation.isPending ? "Saving..." : "Save Trip"}
+                </Button>
               </div>
             </div>
           </Card>

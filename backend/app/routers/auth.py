@@ -1,111 +1,125 @@
-import uuid
+from fastapi import APIRouter, Depends, HTTPException, status, Body, Request
+from fastapi.security import OAuth2PasswordRequestForm
+from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.future import select
+from jose import jwt
+from pydantic import ValidationError
+from uuid import UUID
 
-from fastapi import APIRouter, Depends, HTTPException, status
-from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
-
-from app.models import TokenResponse, UserLogin, UserSignup
-from app.utils.auth import create_access_token, decode_token, hash_password, verify_password
+from app.core.security import create_access_token, create_refresh_token, get_password_hash, verify_password
+from app.core.dependencies import get_current_user
+from app.database import get_db
+from app.models.user import User
+from app.schemas.user import Token, UserOut, UserSignup, UserLogin
+from app.config import settings
+from app.main import limiter
 
 router = APIRouter(prefix="/api/auth", tags=["auth"])
-security = HTTPBearer(auto_error=False)
-
-# In-memory user storage (replace with database in production)
-users_db = {}
 
 
-@router.post("/signup", response_model=TokenResponse)
-async def signup(user_data: UserSignup):
+@router.post("/register", response_model=Token)
+@limiter.limit("10/minute")
+async def register(
+    request: Request,
+    user_in: UserSignup,
+    db: AsyncSession = Depends(get_db)
+):
     """Register a new user"""
-
     # Check if user already exists
-    for user in users_db.values():
-        if user["email"] == user_data.email:
-            raise HTTPException(
-                status_code=status.HTTP_400_BAD_REQUEST,
-                detail="Email already registered",
-            )
+    result = await db.execute(select(User).where(User.email == user_in.email))
+    user = result.scalars().first()
+    if user:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Email already registered",
+        )
 
     # Create new user
-    user_id = str(uuid.uuid4())
-    users_db[user_id] = {
-        "user_id": user_id,
-        "email": user_data.email,
-        "password_hash": hash_password(user_data.password),
-        "full_name": user_data.full_name,
+    new_user = User(
+        email=user_in.email,
+        full_name=user_in.full_name,
+        hashed_password=get_password_hash(user_in.password),
+    )
+    db.add(new_user)
+    await db.commit()
+    await db.refresh(new_user)
+    
+    return {
+        "access_token": create_access_token(new_user.id),
+        "refresh_token": create_refresh_token(new_user.id),
+        "token_type": "bearer",
+        "user": new_user,
     }
 
-    # Create access token
-    access_token = create_access_token(user_id)
 
-    return TokenResponse(
-        access_token=access_token,
-        user_id=user_id,
-        user={
-            "id": user_id,
-            "email": user_data.email,
-            "name": user_data.full_name,
-        },
-    )
-
-
-@router.post("/login", response_model=TokenResponse)
-async def login(credentials: UserLogin):
-    """Login user and return JWT token"""
-
+@router.post("/login", response_model=Token)
+@limiter.limit("5/minute")
+async def login(
+    request: Request,
+    db: AsyncSession = Depends(get_db),
+    form_data: OAuth2PasswordRequestForm = Depends()
+):
+    """Login user and return JWT tokens"""
     # Find user by email
-    user = None
-    for u in users_db.values():
-        if u["email"] == credentials.email:
-            user = u
-            break
+    result = await db.execute(select(User).where(User.email == form_data.username))
+    user = result.scalars().first()
 
+    if not user or not verify_password(form_data.password, user.hashed_password):
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid credentials",
+        )
+
+    return {
+        "access_token": create_access_token(user.id),
+        "refresh_token": create_refresh_token(user.id),
+        "token_type": "bearer",
+        "user": user,
+    }
+
+
+@router.post("/refresh", response_model=Token)
+async def refresh_token(
+    refresh_token: str = Body(..., embed=True),
+    db: AsyncSession = Depends(get_db)
+):
+    """Refresh access token using refresh token"""
+    try:
+        payload = jwt.decode(
+            refresh_token, settings.secret_key, algorithms=[settings.algorithm]
+        )
+        if payload.get("type") != "refresh":
+            raise HTTPException(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                detail="Invalid token type",
+            )
+        user_id = payload.get("sub")
+    except (jwt.JWTError, ValidationError):
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid refresh token",
+        )
+
+    result = await db.execute(select(User).where(User.id == UUID(user_id)))
+    user = result.scalars().first()
     if not user:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid credentials",
-        )
+        raise HTTPException(status_code=404, detail="User not found")
 
-    # Verify password
-    if not verify_password(credentials.password, user["password_hash"]):
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid credentials",
-        )
+    return {
+        "access_token": create_access_token(user.id),
+        "refresh_token": refresh_token,  # Keep the same refresh token or issue new one
+        "token_type": "bearer",
+        "user": user,
+    }
 
-    # Create access token
-    access_token = create_access_token(user["user_id"])
 
-    return TokenResponse(
-        access_token=access_token,
-        user_id=user["user_id"],
-        user={
-            "id": user["user_id"],
-            "email": user["email"],
-            "name": user["full_name"],
-        },
-    )
+@router.get("/me", response_model=UserOut)
+async def get_me(current_user: User = Depends(get_current_user)):
+    """Return the current authenticated user."""
+    return current_user
 
 
 @router.post("/logout")
 async def logout():
-    """Logout user (client-side removes token)"""
-    return {"message": "Logout successful"}
-
-
-@router.get("/me")
-async def me(credentials: HTTPAuthorizationCredentials | None = Depends(security)):
-    """Return the current authenticated user from the JWT token."""
-
-    if credentials is None:
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Not authenticated")
-
-    user_id = decode_token(credentials.credentials)
-    if not user_id or user_id not in users_db:
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid token")
-
-    user = users_db[user_id]
-    return {
-        "id": user["user_id"],
-        "email": user["email"],
-        "name": user["full_name"],
-    }
+    """Logout user (client-side token removal is primary, but this endpoint exists for consistency)"""
+    return {"detail": "Successfully logged out"}

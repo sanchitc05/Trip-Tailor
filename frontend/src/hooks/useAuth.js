@@ -1,29 +1,39 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { authService } from "@/services/authService";
-import { useAppStore } from "@/store/useAppStore";
+import { useAuthStore } from "@/store/authStore";
 
 export function useCurrentUser() {
-  const token = useAppStore((s) => s.auth.token);
+  const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
   return useQuery({
     queryKey: ["auth", "me"],
     queryFn: authService.me,
-    enabled: Boolean(token),
+    enabled: isAuthenticated,
   });
 }
 
 export function useSignIn() {
-  const login = useAppStore((s) => s.login);
+  const login = useAuthStore((s) => s.login);
   return useMutation({
     mutationFn: authService.signIn,
     onSuccess: (data) => {
-      login({ user: data.user, token: data.accessToken });
+      login(
+        { access_token: data.access_token, refresh_token: data.refresh_token },
+        data.user
+      );
     },
   });
 }
 
 export function useSignUp() {
+  const login = useAuthStore((s) => s.login);
   return useMutation({
     mutationFn: authService.signUp,
+    onSuccess: (data) => {
+      login(
+        { access_token: data.access_token, refresh_token: data.refresh_token },
+        data.user
+      );
+    },
   });
 }
 

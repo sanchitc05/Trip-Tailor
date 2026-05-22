@@ -1,10 +1,12 @@
 import { useMemo, useState } from "react";
-import { Calculator, Car, Plane, TrainFront, BusFront } from "lucide-react";
+import { Calculator, Car, Plane, TrainFront, BusFront, Save } from "lucide-react";
 import BudgetChart from "@/components/charts/BudgetChart";
 import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import Input from "@/components/ui/Input";
 import { usePageTitle } from "@/hooks/usePageTitle";
+import { useCreateExpense } from "@/hooks/useExpenses";
+import { toast } from "react-hot-toast";
 
 const transportRates = {
   flight: 5200,
@@ -77,6 +79,52 @@ export default function ExpensePage() {
 
   const updateField = (field) => (event) => {
     setForm((current) => ({ ...current, [field]: event.target.value }));
+  };
+
+  const createExpenseMutation = useCreateExpense();
+
+  const handleSaveExpense = async () => {
+    try {
+      const date = form.departureDate || new Date().toISOString().split("T")[0];
+      
+      // Save Transport
+      await createExpenseMutation.mutateAsync({
+        category: form.mode === "car" ? "fuel" : "ticket",
+        amount: totals.transport,
+        description: `Travel from ${form.source} to ${form.destination} via ${form.mode}`,
+        date,
+      });
+      
+      // Save Accommodation
+      if (totals.accommodation > 0) {
+        await createExpenseMutation.mutateAsync({
+          category: "hotel",
+          amount: totals.accommodation,
+          description: `Accommodation for ${form.days} days (${form.accommodation})`,
+          date,
+        });
+      }
+
+      // Save Food
+      await createExpenseMutation.mutateAsync({
+        category: "food",
+        amount: totals.food,
+        description: `Food expenses for ${form.days} days`,
+        date,
+      });
+
+      // Save Buffer as Misc
+      await createExpenseMutation.mutateAsync({
+        category: "misc",
+        amount: totals.buffer,
+        description: `Trip buffer/contingency`,
+        date,
+      });
+
+      toast.success("All expenses saved to history!");
+    } catch (error) {
+      toast.error("Failed to save some expenses.");
+    }
   };
 
   const handleSubmit = (event) => {
@@ -243,11 +291,19 @@ export default function ExpensePage() {
                 </div>
               ))}
             </div>
-            <p className="text-sm leading-6 text-slate-400">
-              {calculated
-                ? `Planning ${form.mode} travel from ${form.source} to ${form.destination}.`
-                : "Fill the form and calculate to preview your route estimate."}
-            </p>
+            <div className="flex items-center justify-between gap-4 border-t border-white/10 pt-4">
+              <p className="text-sm leading-6 text-slate-400">
+                {calculated
+                  ? `Planning ${form.mode} travel from ${form.source} to ${form.destination}.`
+                  : "Fill the form and calculate to preview your route estimate."}
+              </p>
+              {calculated && (
+                <Button onClick={handleSaveExpense} disabled={createExpenseMutation.isPending} size="sm" className="gap-2">
+                  <Save size={16} />
+                  {createExpenseMutation.isPending ? "Saving..." : "Save"}
+                </Button>
+              )}
+            </div>
           </Card>
 
           <Card className="border-white/10 bg-white/5 text-white shadow-lg shadow-black/10">

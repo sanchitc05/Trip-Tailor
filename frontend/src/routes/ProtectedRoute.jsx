@@ -1,13 +1,26 @@
+import { useEffect } from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
-import { useAppStore } from "@/store/useAppStore";
+import { useAuthStore } from "@/store/authStore";
+import FullPageSpinner from "@/components/loaders/FullPageSpinner";
 
 export default function ProtectedRoute() {
-  const token = useAppStore((s) => s.auth.token);
+  const { isAuthenticated, isValidating, validateSession, accessToken } = useAuthStore();
   const location = useLocation();
 
-  if (!token) {
-    return <Navigate to="/auth/sign-in" replace state={{ from: location }} />;
+  useEffect(() => {
+    if (accessToken && !isAuthenticated) {
+      validateSession();
+    }
+  }, [accessToken, isAuthenticated, validateSession]);
+
+  if (isValidating) {
+    return <FullPageSpinner />;
+  }
+
+  if (!isAuthenticated) {
+    return <Navigate to="/signin" replace state={{ from: location }} />;
   }
 
   return <Outlet />;
 }
+

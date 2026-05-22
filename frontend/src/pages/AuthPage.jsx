@@ -33,7 +33,7 @@ export default function AuthPage({ mode = "signin" }) {
       navigate("/dashboard");
     } else if (mode === "signup") {
       await signUp.mutateAsync(values);
-      navigate("/auth/sign-in");
+      navigate("/dashboard");
     } else {
       await forgotPassword.mutateAsync(values);
     }

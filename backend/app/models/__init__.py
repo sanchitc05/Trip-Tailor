@@ -1,27 +1,6 @@
-from app.models.trip import (
-    TripRequest,
-    TripRequestBody,
-    TripResponse,
-    TripRecommendationResponse,
-    DayItinerary,
-    CostBreakdown,
-    Waypoint,
-    ContactMessage,
-    UserSignup,
-    UserLogin,
-    TokenResponse,
-)
+from app.database import Base
+from app.models.user import User
+from app.models.trip import Trip
+from app.models.expense import Expense
 
-__all__ = [
-    "TripRequest",
-    "TripRequestBody",
-    "TripResponse",
-    "TripRecommendationResponse",
-    "DayItinerary",
-    "CostBreakdown",
-    "Waypoint",
-    "ContactMessage",
-    "UserSignup",
-    "UserLogin",
-    "TokenResponse",
-]
+__all__ = ["Base", "User", "Trip", "Expense"]

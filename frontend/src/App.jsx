@@ -10,6 +10,7 @@ import AppRouter from "./routes/AppRouter";
 import { AppContextProvider } from "./context/AppContext";
 import { ToastProvider } from "./context/ToastContext";
 import AppErrorBoundary from "./components/errors/AppErrorBoundary";
+import { useSessionExpiry } from "./hooks/useSessionExpiry";
 
 function dispatchGlobalError(message) {
   window.dispatchEvent(new CustomEvent("app-error", { detail: { message } }));
@@ -32,8 +33,10 @@ const queryClient = new QueryClient({
 });
 
 export default function App() {
+  useSessionExpiry();
   return (
     <ToastProvider>
+...
       <AppErrorBoundary>
         <QueryClientProvider client={queryClient}>
           <AppContextProvider>

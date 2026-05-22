@@ -20,15 +20,15 @@ An AI-powered trip planning web app that generates personalized itineraries, map
 
 ## Tech Stack
 
-| Layer      | Technology                              |
-|------------|-----------------------------------------|
-| Frontend   | React 18, Vite, React Router, Zustand   |
-| Backend    | FastAPI, Uvicorn, Pydantic              |
-| Styling    | CSS Modules / Tailwind CSS              |
-| Maps       | Mapbox GL JS                            |
-| AI         | Google Gemini API                       |
-| Database   | PostgreSQL / MongoDB                    |
-| CI/CD      | GitHub Actions, Vercel                  |
+| Layer      | Technology                                  |
+|------------|---------------------------------------------|
+| Frontend   | React 18, Vite, React Router, Zustand, TanStack Query |
+| Backend    | FastAPI, SQLAlchemy (Async), Alembic, Pydantic |
+| Database   | PostgreSQL                                  |
+| Styling    | Tailwind CSS                                |
+| Maps       | Mapbox GL JS                                |
+| AI         | Google Gemini API                           |
+| CI/CD      | GitHub Actions, Vercel                      |
 
 ---
 
@@ -115,15 +115,28 @@ npm run dev        # runs on http://localhost:5173
 
 ### Backend
 
-```bash
-cd backend
-python -m venv venv
-venv\Scripts\activate     # Windows
-source venv/bin/activate  # Mac/Linux
-pip install -r requirements.txt
-cp .env.example .env      # fill in your keys
-uvicorn app.main:app --reload  # runs on http://localhost:8000
-```
+1. **Install Dependencies:**
+   ```bash
+   cd backend
+   python -m venv .venv
+   .venv\Scripts\activate     # Windows
+   source .venv/bin/activate  # Mac/Linux
+   pip install -r requirements.txt
+   ```
+
+2. **Database Setup:**
+   - Install PostgreSQL and create a database named `trip_tailor`.
+   - Copy `.env.example` to `.env` and update `DATABASE_URL`.
+
+3. **Run Migrations:**
+   ```bash
+   alembic upgrade head
+   ```
+
+4. **Start Server:**
+   ```bash
+   uvicorn app.main:app --reload  # runs on http://localhost:8000
+   ```
 
 ---
 
@@ -131,12 +144,15 @@ uvicorn app.main:app --reload  # runs on http://localhost:8000
 
 | Method | Endpoint | Description |
 |---|---|---|
-| `GET` | `/health` | Basic health check |
-| `POST` | `/api/trips/recommend` | AI-generated itinerary (destination, duration, budget, travel style, group size) |
-| `POST` | `/api/auth/signup` | Create a new account |
-| `POST` | `/api/auth/login` | Log in and receive a JWT |
-| `POST` | `/api/auth/logout` | Invalidate the session |
-| `POST` | `/api/contact` | Submit a contact form message |
+| `POST` | `/api/auth/register` | Create a new account |
+| `POST` | `/api/auth/login` | Log in and receive JWT (OAuth2 compatible) |
+| `POST` | `/api/auth/refresh` | Get a new access token |
+| `GET` | `/api/auth/me` | Get current user profile |
+| `GET` | `/api/trips/` | List current user's trips |
+| `POST` | `/api/trips/` | Create a new trip |
+| `POST` | `/api/trips/recommend` | AI-generated itinerary |
+| `GET` | `/api/expenses/` | List current user's expenses |
+| `POST` | `/api/expenses/` | Create a new expense |
 
 ---
 
