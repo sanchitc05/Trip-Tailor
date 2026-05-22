@@ -4,7 +4,12 @@ from datetime import datetime
 import google.generativeai as genai
 
 from app.config import settings
-from app.models import TripRecommendationResponse, DayItinerary, CostBreakdown, Waypoint
+from app.schemas.trip import (
+    TripRecommendationResponse,
+    DayItinerary,
+    CostBreakdown,
+    Waypoint,
+)
 
 
 class AITripService:

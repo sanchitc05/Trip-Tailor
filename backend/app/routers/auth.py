@@ -8,11 +8,11 @@ from uuid import UUID
 
 from app.core.security import create_access_token, create_refresh_token, get_password_hash, verify_password
 from app.core.dependencies import get_current_user
+from app.core.rate_limit import limiter
 from app.database import get_db
 from app.models.user import User
 from app.schemas.user import Token, UserOut, UserSignup, UserLogin
 from app.config import settings
-from app.main import limiter
 
 router = APIRouter(prefix="/api/auth", tags=["auth"])
 

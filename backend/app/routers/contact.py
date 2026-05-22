@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from app.models import ContactMessage
+from app.schemas.contact import ContactMessage
 
 router = APIRouter(prefix="/api", tags=["contact"])
 

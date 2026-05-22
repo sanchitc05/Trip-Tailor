@@ -2,8 +2,34 @@ import os
 from functools import lru_cache
 
 from dotenv import load_dotenv
+from sqlalchemy.engine import make_url
+from sqlalchemy.exc import ArgumentError
 
 load_dotenv()
+
+DEFAULT_DATABASE_URL = "postgresql+asyncpg://postgres:password@localhost:5432/trip_tailor"
+
+
+def _normalize_database_url(raw_url: str | None) -> str:
+    candidate = (raw_url or "").strip()
+
+    if candidate[:1] in {"\"", "'"} and candidate[-1:] == candidate[:1]:
+        candidate = candidate[1:-1].strip()
+
+    if not candidate:
+        return DEFAULT_DATABASE_URL
+
+    if candidate.startswith("postgres://"):
+        candidate = "postgresql+asyncpg://" + candidate[len("postgres://") :]
+    elif candidate.startswith("postgresql://"):
+        candidate = "postgresql+asyncpg://" + candidate[len("postgresql://") :]
+
+    try:
+        make_url(candidate)
+    except ArgumentError:
+        return DEFAULT_DATABASE_URL
+
+    return candidate
 
 
 class Settings:
@@ -23,9 +49,7 @@ class Settings:
     ]
 
     # Database
-    database_url: str = os.getenv(
-        "DATABASE_URL", "postgresql+asyncpg://postgres:password@localhost:5432/trip_tailor"
-    )
+    database_url: str = _normalize_database_url(os.getenv("DATABASE_URL"))
 
     # JWT
     secret_key: str = os.getenv("SECRET_KEY", "your-secret-key-change-in-production")

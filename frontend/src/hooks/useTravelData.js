@@ -36,6 +36,37 @@ export function useRecommendations() {
   });
 }
 
+export function useToggleRecommendationSave() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: async ({ id, saved }) => ({ id, saved }),
+    onMutate: async ({ id, saved }) => {
+      await queryClient.cancelQueries({ queryKey: ["recommendations"] });
+
+      const previousRecommendations = queryClient.getQueryData(["recommendations"]);
+
+      queryClient.setQueryData(["recommendations"], (currentRecommendations = []) =>
+        currentRecommendations.map((recommendation) =>
+          recommendation.id === id
+            ? { ...recommendation, saved }
+            : recommendation,
+        ),
+      );
+
+      return { previousRecommendations };
+    },
+    onError: (_error, _variables, context) => {
+      if (context?.previousRecommendations) {
+        queryClient.setQueryData(["recommendations"], context.previousRecommendations);
+      }
+    },
+    onSettled: () => {
+      queryClient.invalidateQueries({ queryKey: ["recommendations"] });
+    },
+  });
+}
+
 export function useRouteComparison(params) {
   return useQuery({
     queryKey: ["routes", "comparison", params],

@@ -63,6 +63,11 @@ class TripResponse(BaseModel):
     generated_at: str
 
 
+class TripRecommendationResponse(TripResponse):
+    """Backward-compatible alias for older service and router imports."""
+    pass
+
+
 class TripCreate(BaseModel):
     title: str = Field(..., max_length=100, min_length=1)
     origin: str = Field(..., max_length=100)
