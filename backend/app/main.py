@@ -5,11 +5,19 @@ from slowapi.errors import RateLimitExceeded
 
 from app.config import settings
 from app.core.rate_limit import limiter
+from app.database import Base, engine
 from app.routers import auth, contact, trips, expenses
 
 app = FastAPI(title=settings.app_name)
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
+
+
+@app.on_event("startup")
+async def startup_event():
+    if settings.environment == "development":
+        async with engine.begin() as conn:
+            await conn.run_sync(Base.metadata.create_all)
 
 app.add_middleware(
     CORSMiddleware,

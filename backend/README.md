@@ -14,3 +14,5 @@ uvicorn app.main:app --reload
 ```
 
 The API exposes a health check at `GET /health`.
+
+On startup in development mode, the backend will create any missing SQLAlchemy tables automatically.
