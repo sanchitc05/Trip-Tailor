@@ -9,7 +9,6 @@ const PlannerPage = lazy(() => import("@/pages/PlannerPage"));
 const ExpensePage = lazy(() => import("@/pages/ExpensePage"));
 const DestinationsPage = lazy(() => import("@/pages/DestinationsPage"));
 const AboutPage = lazy(() => import("@/pages/AboutPage"));
-const ContributorsPage = lazy(() => import("@/pages/ContributorsPage"));
 const ContactPage = lazy(() => import("@/pages/ContactPage"));
 const SignInPage = lazy(() => import("@/pages/SignInPage"));
 const AuthPage = lazy(() => import("@/pages/AuthPage"));
@@ -37,7 +36,6 @@ export default function AppRouter() {
           <Route index element={<HomePage />} />
           <Route path="destinations" element={<DestinationsPage />} />
           <Route path="about" element={<AboutPage />} />
-          <Route path="contributors" element={<ContributorsPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="signin" element={<SignInPage />} />
           <Route path="register" element={<AuthPage mode="signup" />} />

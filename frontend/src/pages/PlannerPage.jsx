@@ -15,6 +15,7 @@ import Button from "@/components/ui/Button";
 import Card from "@/components/ui/Card";
 import Input from "@/components/ui/Input";
 import TripMap from "@/components/TripMap";
+import heroImage from "@/assets/hero-bg.png";
 import { usePageTitle } from "@/hooks/usePageTitle";
 import { tripService } from "@/services/tripService";
 import { useCreateTrip } from "@/hooks/useTrips";
