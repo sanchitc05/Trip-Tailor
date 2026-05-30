@@ -23,7 +23,6 @@ const footerLinks = [
     links: [
       { label: "Planner", to: "/plan" },
       { label: "Expenses", to: "/expenses" },
-      { label: "Contributors", to: "/contributors" },
     ],
   },
 ];

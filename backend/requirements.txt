@@ -16,3 +16,4 @@ asyncpg
 aiosqlite
 alembic
 psycopg2-binary
+slowapi
